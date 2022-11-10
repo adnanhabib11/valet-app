@@ -1,0 +1,99 @@
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:get/get.dart';
+
+import '../models/orderstatus_model.dart';
+import '../views/services.dart';
+import 'auth_controller.dart';
+import 'order_controller.dart';
+
+class OrderStatus extends GetxController {
+  final auth_controller = Get.put(AuthenticationManagerController());
+  var orderstatus = <OrderStatusCheck>[].obs;
+  final home_controller = Get.put(OrderController());
+  var isLoading = true.obs;
+  services request = services();
+  // final RxString rxstring = "".obs;
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  //   fetchorderstatus();
+  // }
+  Future<void> fetchorderstatus(var id, var index, var status) async {
+    print('ssssssssss$status');
+
+    String status_url = request.mainurl + "/api/valet/order/status/$id";
+    try {
+      var token = auth_controller.getToken();
+      var org_id = auth_controller.getOrganizationid();
+      print('ssssssssssssss');
+      Map<String, String> header = {
+        "Content-Type": "application/json",
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+        'org-id': org_id.toString(),
+      };
+      var input = json.encode({
+        "status": status,
+      });
+      print("Status is $status");
+//https://dev2.linentech.net/api/valet-order/status/$id
+      final response =
+          await http.post(Uri.parse(status_url), headers: header, body: input);
+
+      print("response body: url hit good: ${response.body.toString()}");
+
+      if (response.statusCode == 200) {
+        var jsonResponse = jsonDecode(response.body);
+    home_controller.orderlisting[0].order![index].status =    jsonResponse['data']['order_status'];
+                   home_controller.selectstatus.value = '0'.toString();
+                          home_controller.fetchorder(
+                              home_controller.selectfirstdate.value,
+                              home_controller.selectenddate.value);
+        // update();
+        // Text('ssssssss${home_controller.orderlisting[0].order![index].status}');
+        // //  home_controller.orderlisting.refresh();
+        // //  update();
+        // //  rxstring.value = 'Hi';
+        // OrderStatusCheck _albumModel =
+        //     OrderStatusCheck.fromJson(jsonDecode(response.body));
+
+        // orderstatus.add(OrderStatusCheck(
+        //   status: _albumModel.status,
+        //   data: _albumModel.data,
+        //   //   list[1].status = "picked"
+        //   //  url: _albumModel.url,
+        //   //   thumbnailUrl: _albumModel.thumbnailUrl,
+        //   //   id: _albumModel.id,
+        //   //   albumId: _albumModel.albumId,
+        //   // ),
+        // ));
+
+        //   var t = orderstatus[0].data!.orderStatus.toString();
+
+        //    print('zzzzzzzzzzzzz${ home_controller.orderlisting[0].order![index].status.toString()}');
+        // home_controller.orderlisting[0].order![index].status =
+        //     orderstatus[0].data!.orderStatus.toString();
+
+        //   for (var result in home_controller.orderlisting) {
+
+        // print(
+        //     'update status ${home_controller.orderlisting[0].order![index].status.toString()}');
+        //     }
+        //   home_controller.orderlisting[0].r
+        // print("ddddddddddddddd${orderstatus[0].data!.orderStatus.toString()}");
+
+        isLoading.value = false;
+        update();
+      } else {
+        throw Exception('Failed to load ');
+      }
+    } catch (e) {
+      throw e;
+    }
+    home_controller.orderlisting.refresh();
+    //   update();
+  }
+}
