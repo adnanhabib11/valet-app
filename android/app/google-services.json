@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "511519379518",
+    "project_id": "valetapppushnotification",
+    "storage_bucket": "valetapppushnotification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511519379518:android:47b4de6f9c0c5814e6416f",
+        "android_client_info": {
+          "package_name": "com.example.hotel_vallet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511519379518-l9tg554v0vs85osi3u4g9seqh9abo5qd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCloFsUFGdblenx4Z7UqCG1bLYr1HCfmF8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511519379518-l9tg554v0vs85osi3u4g9seqh9abo5qd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

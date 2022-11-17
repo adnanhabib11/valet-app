@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
 import '../../controllers/auth_controller.dart';
@@ -9,6 +10,9 @@ import 'package:get/get.dart';
 import 'checkstatus.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'package:firebase_messaging/firebase_messaging.dart';
+
+
 class Splashscreen extends StatefulWidget {
   const Splashscreen({Key? key}) : super(key: key);
 
@@ -17,12 +21,68 @@ class Splashscreen extends StatefulWidget {
 }
 
 class _SplashscreenState extends State<Splashscreen> {
+  
+
   final AuthenticationManagerController _authmanager =
       Get.put(AuthenticationManagerController());
+  Future push() async {
+    String? token = await FirebaseMessaging.instance.getToken();
+    print('Device token is $token');
+  }
 
   void initState() {
     super.initState();
+    push();
     initializeSettings();
+
+    // 1. This method call when app in terminated state and you get a notification
+    // when you click on notification app open from terminated state and you can get notification data in this method
+
+    FirebaseMessaging.instance.getInitialMessage().then(
+      (message) {
+        print("FirebaseMessaging.instance.getInitialMessage");
+        if (message != null) {
+          print("New Notification");
+          // if (message.data['_id'] != null) {
+          //   Navigator.of(context).push(
+          //     MaterialPageRoute(
+          //       builder: (context) => DemoScreen(
+          //         id: message.data['_id'],
+          //       ),
+          //     ),
+          //   );
+          // }
+        }
+      },
+    );
+
+    // 2. This method only call when App in forground it mean app must be opened
+    FirebaseMessaging.onMessage.listen(
+      (message) {
+        print("FirebaseMessaging.onMessage.listen");
+        if (message.notification != null) {
+          print(message.notification!.title);
+          print(message.notification!.body);
+          print("message.data11");
+          
+      
+          // LocalNotificationService.display(message);
+
+        }
+      },
+    );
+
+    // 3. This method only call when App in background and not terminated(not closed)
+    FirebaseMessaging.onMessageOpenedApp.listen(
+      (message) {
+        print("FirebaseMessaging.onMessageOpenedApp.listen");
+        if (message.notification != null) {
+          print(message.notification!.title);
+          print(message.notification!.body);
+          print("message.data22 }");
+        }
+      },
+    );
   }
 
   Future<void> initializeSettings() async {
@@ -140,4 +200,5 @@ class _SplashscreenState extends State<Splashscreen> {
     //       child: FittedBox(child: Image.asset('images/Imageflash.png'),   fit: BoxFit.cover)),
     // );
   }
+  
 }
