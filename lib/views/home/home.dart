@@ -89,22 +89,26 @@ class _HomeState extends State<Home> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Image.network(
-                    request.awsPath +
-                        'profile/' +
-                        auth_controller.getLaundrylogo().toString(),
-                    height: 40,
-                  ),
+                      request.awsPath +
+                          'profile/' +
+                          auth_controller.getLaundrylogo().toString(),
+                      height: 40, errorBuilder: (BuildContext context,
+                          Object exception, StackTrace? stackTrace) {
+                    return const Text('');
+                  }),
                   // Image.asset(
                   //   'images/letter-s-inside-the-splash-with-sparkling-stars-5031ld 1.png',
                   // ),
                   Row(
                     children: [
                       Image.network(
-                        request.awsPath +
-                            'customers/' +
-                            auth_controller.getcustomerlogo().toString(),
-                        height: 36,
-                      ),
+                          request.awsPath +
+                              'customers/' +
+                              auth_controller.getcustomerlogo().toString(),
+                          height: 36, errorBuilder: (BuildContext context,
+                              Object exception, StackTrace? stackTrace) {
+                        return const Text('');
+                      }),
                       // Image.asset(
                       //   'images/Group 13833.png',
                       // ),
@@ -1132,7 +1136,6 @@ class _HomeState extends State<Home> {
                                   print("qqqqqqqqqqqqq$roomno");
                                   home_controller.roomnunber.value =
                                       roomno.toString();
-                                      
 
                                   callapi(
                                       home_controller.followerCount.toString());
@@ -1607,19 +1610,16 @@ class _HomeState extends State<Home> {
       print('ssssss$thisyearfistdate     $thisyearlastdate');
       home_controller.selectfirstdate.value = thisyearfistdate.toString();
       home_controller.selectenddate.value = thisyearlastdate.toString();
-    } 
-     else if (int.parse(index) == 8) 
-     {
-         var startdate = DateFormat('yyyy-MM-dd')
-        .format(today.subtract(new Duration(days: today.weekday - 1)));
-    var enddate = DateFormat('yyyy-MM-dd').format(
-        today.add(new Duration(days: DateTime.daysPerWeek - today.weekday)));
-         home_controller.fetchorder(startdate, enddate);
+    } else if (int.parse(index) == 8) {
+      var startdate = DateFormat('yyyy-MM-dd')
+          .format(today.subtract(new Duration(days: today.weekday - 1)));
+      var enddate = DateFormat('yyyy-MM-dd').format(
+          today.add(new Duration(days: DateTime.daysPerWeek - today.weekday)));
+      home_controller.fetchorder(startdate, enddate);
       print('ssssss$startdate     $enddate');
       home_controller.selectfirstdate.value = startdate.toString();
       home_controller.selectenddate.value = enddate.toString();
-     }
-    else {
+    } else {
       var preyearfistdate = new DateTime(today.year - 1);
       var preyearlastdate = new DateTime(today.year - 1, 12, 31);
       home_controller.fetchorder(preyearfistdate, preyearlastdate);
@@ -1627,7 +1627,5 @@ class _HomeState extends State<Home> {
       home_controller.selectfirstdate.value = preyearfistdate.toString();
       home_controller.selectenddate.value = preyearlastdate.toString();
     }
-   
-    
   }
 }
