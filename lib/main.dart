@@ -16,7 +16,7 @@ void main()async {
    await GetStorage.init();
    WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp();
-    FirebaseMessaging.onBackgroundMessage(backgroundHandler);
+ //   FirebaseMessaging.onBackgroundMessage(backgroundHandler);
     
   runApp( MyApp());
 }

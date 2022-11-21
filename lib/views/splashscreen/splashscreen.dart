@@ -4,14 +4,11 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
 import '../../controllers/auth_controller.dart';
-import '../login/login.dart';
 import 'package:get/get.dart';
 
 import 'checkstatus.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import 'package:firebase_messaging/firebase_messaging.dart';
-
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({Key? key}) : super(key: key);
@@ -21,8 +18,9 @@ class Splashscreen extends StatefulWidget {
 }
 
 class _SplashscreenState extends State<Splashscreen> {
-  
-
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+  FlutterLocalNotificationsPlugin fltNotification =
+      new FlutterLocalNotificationsPlugin();
   final AuthenticationManagerController _authmanager =
       Get.put(AuthenticationManagerController());
   Future push() async {
@@ -34,6 +32,7 @@ class _SplashscreenState extends State<Splashscreen> {
     super.initState();
     push();
     initializeSettings();
+    initMessaging();
 
     // 1. This method call when app in terminated state and you get a notification
     // when you click on notification app open from terminated state and you can get notification data in this method
@@ -56,16 +55,18 @@ class _SplashscreenState extends State<Splashscreen> {
       },
     );
 
-    // 2. This method only call when App in forground it mean app must be opened
+    //  
+    //2. This method only call when App in forground it mean app must be opened
+     
     FirebaseMessaging.onMessage.listen(
       (message) {
+         
         print("FirebaseMessaging.onMessage.listen");
         if (message.notification != null) {
           print(message.notification!.title);
           print(message.notification!.body);
           print("message.data11");
-          
-      
+
           // LocalNotificationService.display(message);
 
         }
@@ -83,6 +84,27 @@ class _SplashscreenState extends State<Splashscreen> {
         }
       },
     );
+  }
+
+  void initMessaging() {
+    print('---------------in init messaging');
+    var androiInit = AndroidInitializationSettings('@mipmap/ic_launcher');
+    var iosInit = DarwinInitializationSettings();
+    var initSetting = InitializationSettings(android: androiInit, iOS: iosInit);
+    fltNotification = FlutterLocalNotificationsPlugin();
+    fltNotification.initialize(initSetting);
+    var androidDetails = AndroidNotificationDetails('1', 'channelName');
+    var iosDetails = DarwinNotificationDetails();
+    var generalNotificationDetails =
+        NotificationDetails(android: androidDetails, iOS: iosDetails);
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      RemoteNotification? notification = message.notification;
+      AndroidNotification? android = message.notification?.android;
+      if (notification != null && android != null) {
+        fltNotification.show(notification.hashCode, notification.title,
+            notification.body, generalNotificationDetails);
+      }
+    });
   }
 
   Future<void> initializeSettings() async {
@@ -200,5 +222,4 @@ class _SplashscreenState extends State<Splashscreen> {
     //       child: FittedBox(child: Image.asset('images/Imageflash.png'),   fit: BoxFit.cover)),
     // );
   }
-  
 }
