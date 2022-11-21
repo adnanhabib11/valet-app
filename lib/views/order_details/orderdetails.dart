@@ -44,13 +44,16 @@ class _OrderdetailsState extends State<Orderdetails> {
                           Row(
                             children: [
                               Image.network(
-                                request.awsPath +
-                                    'customers/' +
-                                    auth_controller
-                                        .getcustomerlogo()
-                                        .toString(),
-                                height: 36,
-                              ),
+                                  request.awsPath +
+                                      'customers/' +
+                                      auth_controller
+                                          .getcustomerlogo()
+                                          .toString(),
+                                  height: 36, errorBuilder:
+                                      (BuildContext context, Object exception,
+                                          StackTrace? stackTrace) {
+                                return const Text('');
+                              }),
                               SizedBox(
                                 width: 10,
                               ),
@@ -129,14 +132,18 @@ class _OrderdetailsState extends State<Orderdetails> {
                               child: Row(
                                 children: [
                                   Image.network(
-                                    request.awsPath +
-                                        'customers/' +
-                                        auth_controller
-                                            .getcustomerlogo()
-                                            .toString(),
-                                    // height: 240,
-                                    width: 170,
-                                  ),
+                                      request.awsPath +
+                                          'customers/' +
+                                          auth_controller
+                                              .getcustomerlogo()
+                                              .toString(),
+                                      // height: 240,
+                                      width: 170, errorBuilder:
+                                          (BuildContext context,
+                                              Object exception,
+                                              StackTrace? stackTrace) {
+                                    return const Text('');
+                                  }),
                                   SizedBox(
                                     width: 10,
                                   ),
