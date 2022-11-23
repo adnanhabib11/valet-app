@@ -255,6 +255,7 @@ class _HomeState extends State<Home> {
                       onPressed: () {
                         setState(() {
                           home_controller.selectstatus.value = '0'.toString();
+                          home_controller.start.value = 0;
                           home_controller.fetchorder(
                               home_controller.selectfirstdate.value,
                               home_controller.selectenddate.value);
@@ -304,6 +305,7 @@ class _HomeState extends State<Home> {
                         //    home_controller.fetchorder();
                         setState(() {
                           home_controller.selectstatus.value = '1'.toString();
+                                home_controller.start.value = 0;
                           home_controller.fetchorder(
                               home_controller.selectfirstdate.value,
                               home_controller.selectenddate.value);
@@ -326,9 +328,11 @@ class _HomeState extends State<Home> {
                       children: [
                         Expanded(
                           //TODO: Add Expanded here
+
                           child: ListView.builder(
                             shrinkWrap: true,
                             scrollDirection: Axis.vertical,
+                            controller: home_controller.controller,
                             itemCount:
                                 home_controller.orderlisting[0].order!.length,
                             itemBuilder: (context, index) {
@@ -856,6 +860,20 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                   ),
+          ),
+          Center(
+            child: IconButton(
+                onPressed: () {
+                  //  home_controller.loadmore.value = '1';
+
+                  home_controller.start.value =
+                      home_controller.orderlisting[0].order!.length;
+                  home_controller.callnew(home_controller.selectfirstdate.value,
+                      home_controller.selectenddate.value);
+                },
+                icon: const Icon(
+                  Icons.settings_backup_restore,
+                )),
           ),
         ],
       ),

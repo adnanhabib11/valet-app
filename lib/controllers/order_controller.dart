@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:hotel_vallet/models/orderlistmodel.dart';
 
@@ -20,6 +21,10 @@ class OrderController extends GetxController {
   var selectfirstdate = ''.obs;
   var selectenddate = ''.obs;
   var search = ''.obs;
+  ScrollController controller = ScrollController();
+
+  RxInt start = 0.obs;
+  RxInt limit = 2.obs;
   @override
   void onInit() {
     var today = DateTime.now();
@@ -30,8 +35,9 @@ class OrderController extends GetxController {
     selectfirstdate.value = startdate;
     selectenddate.value = enddate;
 
-    super.onInit();
     fetchorder(startdate, enddate);
+
+    super.onInit();
   }
 
   updateStoreName(int val) {
@@ -40,12 +46,13 @@ class OrderController extends GetxController {
   }
 
   Future<void> fetchorder(startdate, enddate) async {
+    
     isLoading.value = true;
     print("start date is $startdate  end date is $enddate");
     print('picked  and open is  $selectstatus');
     print("room no is $roomnunber");
     String home_url = request.mainurl +
-        "/api/valet/order/show?date_from=$startdate&date_to=$enddate&room=$roomnunber&status=$selectstatus&search[value]=$search";
+        "/api/valet/order/show?date_from=$startdate&date_to=$enddate&room=$roomnunber&status=$selectstatus&search[value]=$search&start=$start&length=$limit";
     print('$home_url');
     try {
       // orderlisting.clear();
@@ -81,7 +88,7 @@ class OrderController extends GetxController {
         isLoading.value = false;
         roomnunber.value = '';
         search.value = '';
-       
+
         // selectstatus.value = '';
         update();
       } else {
@@ -94,6 +101,66 @@ class OrderController extends GetxController {
     update();
   }
 
+  Future callnew(startdate, enddate) async {
+    print("start date is $startdate  end date is $enddate");
+    print('start number is $start');
+    print('end number is $limit');
+    String home_url = request.mainurl +
+        "/api/valet/order/show?date_from=$startdate&date_to=$enddate&room=$roomnunber&status=$selectstatus&search[value]=$search&start=$start&length=$limit";
+    try {
+      var token = auth_controller.getToken();
+      var org_id = auth_controller.getOrganizationid();
+      print('ssssssssssssss');
+      Map<String, String> header = {
+        "Content-Type": "application/json",
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+        'org-id': org_id.toString(),
+      };
+
+      final response = await http.get(Uri.parse(home_url), headers: header);
+
+      print("response body: url hit good: ${response.body.toString()}");
+
+      if (response.statusCode == 200) {
+        Orderlist _albumModel = Orderlist.fromJson(jsonDecode(response.body));
+
+        for (var i = 0; i < _albumModel.order!.length; i++) {
+          orderlisting[0].order!.add(Order(
+              id: _albumModel.order![i].id,
+              name: _albumModel.order![i].name,
+              referenceNumber: _albumModel.order![i].referenceNumber,
+              customerId: _albumModel.order![i].customerId,
+              organizationId: _albumModel.order![i].organizationId,
+              email: _albumModel.order![i].email,
+              roomNumber: _albumModel.order![i].roomNumber,
+              phone: _albumModel.order![i].phone,
+              orderDate: _albumModel.order![i].orderDate,
+              status: _albumModel.order![i].status,
+              createdAt: _albumModel.order![i].createdAt,
+              updatedAt: _albumModel.order![i].updatedAt,
+              customerName: _albumModel.order![i].customerName));
+        }
+
+        // start.value = orderlisting[0].order!.length;
+        for (int i = 0; i < orderlisting[0].order!.length; i++) {
+          print('$i is ${orderlisting[0].order![i].name}');
+        }
+
+        isLoading.value = false;
+        roomnunber.value = '';
+        orderlisting.refresh();
+        // selectstatus.value = '';
+        update();
+      } else {
+        throw Exception('Failed to load ');
+      }
+    } catch (e) {
+      print('APi issue$e');
+      throw e;
+    }
+    update();
+  }
 // Future<Orderlist> fetchorder() async {
 
 //   var token = auth_controller.getToken();

@@ -47,43 +47,10 @@ class OrderStatus extends GetxController {
 
       if (response.statusCode == 200) {
         var jsonResponse = jsonDecode(response.body);
-    home_controller.orderlisting[0].order![index].status =    jsonResponse['data']['order_status'];
-                   home_controller.selectstatus.value = '0'.toString();
-                          home_controller.fetchorder(
-                              home_controller.selectfirstdate.value,
-                              home_controller.selectenddate.value);
-        // update();
-        // Text('ssssssss${home_controller.orderlisting[0].order![index].status}');
-        // //  home_controller.orderlisting.refresh();
-        // //  update();
-        // //  rxstring.value = 'Hi';
-        // OrderStatusCheck _albumModel =
-        //     OrderStatusCheck.fromJson(jsonDecode(response.body));
-
-        // orderstatus.add(OrderStatusCheck(
-        //   status: _albumModel.status,
-        //   data: _albumModel.data,
-        //   //   list[1].status = "picked"
-        //   //  url: _albumModel.url,
-        //   //   thumbnailUrl: _albumModel.thumbnailUrl,
-        //   //   id: _albumModel.id,
-        //   //   albumId: _albumModel.albumId,
-        //   // ),
-        // ));
-
-        //   var t = orderstatus[0].data!.orderStatus.toString();
-
-        //    print('zzzzzzzzzzzzz${ home_controller.orderlisting[0].order![index].status.toString()}');
-        // home_controller.orderlisting[0].order![index].status =
-        //     orderstatus[0].data!.orderStatus.toString();
-
-        //   for (var result in home_controller.orderlisting) {
-
-        // print(
-        //     'update status ${home_controller.orderlisting[0].order![index].status.toString()}');
-        //     }
-        //   home_controller.orderlisting[0].r
-        // print("ddddddddddddddd${orderstatus[0].data!.orderStatus.toString()}");
+        home_controller.orderlisting[0].order![index].status =
+            jsonResponse['data']['order_status'];
+        home_controller.selectstatus.value = '0'.toString();
+        //           home_controller.fetchorder(    home_controller.selectfirstdate.value, home_controller.selectenddate.value);
 
         isLoading.value = false;
         update();
