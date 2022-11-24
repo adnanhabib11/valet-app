@@ -18,6 +18,10 @@ class _OrderdetailsState extends State<Orderdetails> {
   final auth_controller = Get.put(AuthenticationManagerController());
   services request = services();
   LoadingPage loadingPage = LoadingPage();
+  // String quantity = '0';
+  // String price = '0';
+  String rate = '0';
+  String price = '0';
 
   @override
   Widget build(BuildContext context) {
@@ -983,30 +987,49 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                     SizedBox(
                                                       height: 5,
                                                     ),
+                                                    Container(
+                                                      child: totalrate(
+                                                          orderdetail_controller
+                                                              .orderdetails[0]
+                                                              .order!
+                                                              .service![
+                                                                  services]
+                                                              .valetOrderItem![
+                                                                  items]
+                                                              .quantity,
+                                                          orderdetail_controller
+                                                              .orderdetails[0]
+                                                              .order!
+                                                              .service![
+                                                                  services]
+                                                              .valetOrderItem![
+                                                                  items]
+                                                              .price),
+                                                    ),
                                                     Text(
                                                       //  '\$650',
-
-                                                      double.parse(orderdetail_controller
-                                                                  .orderdetails[
-                                                                      0]
-                                                                  .order!
-                                                                  .service![
-                                                                      services]
-                                                                  .valetOrderItem![
-                                                                      items]
-                                                                  .quantity
-                                                                  .toString() +
-                                                              orderdetail_controller
-                                                                  .orderdetails[
-                                                                      0]
-                                                                  .order!
-                                                                  .service![
-                                                                      services]
-                                                                  .valetOrderItem![
-                                                                      items]
-                                                                  .price
-                                                                  .toString())
-                                                          .toString(),
+                                                      rate,
+                                                      // double.parse(orderdetail_controller
+                                                      //             .orderdetails[
+                                                      //                 0]
+                                                      //             .order!
+                                                      //             .service![
+                                                      //                 services]
+                                                      //             .valetOrderItem![
+                                                      //                 items]
+                                                      //             .quantity
+                                                      //             .toString() +
+                                                      //         orderdetail_controller
+                                                      //             .orderdetails[
+                                                      //                 0]
+                                                      //             .order!
+                                                      //             .service![
+                                                      //                 services]
+                                                      //             .valetOrderItem![
+                                                      //                 items]
+                                                      //             .price
+                                                      //             .toString())
+                                                      //     .toString(),
                                                       style: TextStyle(
                                                         fontWeight:
                                                             FontWeight.w700,
@@ -1036,6 +1059,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                     SizedBox(
                                                       height: 5,
                                                     ),
+                                               
                                                     Text(
                                                       //   '\$50',
                                                       orderdetail_controller
@@ -1411,4 +1435,19 @@ class _OrderdetailsState extends State<Orderdetails> {
               )
             ]));
   }
+
+  totalrate(order, price) {
+    print('order is$order');
+    print('order is$price');
+    num orderis = order;
+    num priceis = double.parse(price);
+    priceis = priceis * order;
+    print('rate is $priceis');
+    String removezeros = priceis.toStringAsFixed(2);
+    rate = removezeros.toString();
+
+    priceis = 0;
+  }
+
+
 }
