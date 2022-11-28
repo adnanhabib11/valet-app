@@ -861,25 +861,12 @@ class _HomeState extends State<Home> {
                     ),
                   ),
           ),
-          Center(
-            child: Obx(
-              () => home_controller.isLoading.value
-                  ? Container()
-                  : IconButton(
-                      onPressed: () {
-                        //  home_controller.loadmore.value = '1';
 
-                        home_controller.start.value =
-                            home_controller.orderlisting[0].order!.length;
-                        home_controller.callnew(
-                            home_controller.selectfirstdate.value,
-                            home_controller.selectenddate.value);
-                      },
-                      icon: const Icon(
-                        Icons.settings_backup_restore,
-                      )),
-            ),
-          ),
+          Center(
+              child: Obx(() => home_controller.loaddata.value == 'true'
+                  ? CircularProgressIndicator()
+                  : Container()))
+  
         ],
       ),
     );

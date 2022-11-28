@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:hotel_vallet/models/orderlistmodel.dart';
@@ -14,6 +15,8 @@ class OrderController extends GetxController {
   services request = services();
   var orderlisting = <Orderlist>[].obs;
   var isLoading = true.obs;
+  var loaddata = ''.obs;
+
   final auth_controller = Get.put(AuthenticationManagerController());
   RxInt followerCount = 8.obs;
   var roomnunber = ''.obs;
@@ -24,7 +27,7 @@ class OrderController extends GetxController {
   ScrollController controller = ScrollController();
 
   RxInt start = 0.obs;
-  RxInt limit = 2.obs;
+  RxInt limit = 10.obs;
   @override
   void onInit() {
     var today = DateTime.now();
@@ -36,8 +39,18 @@ class OrderController extends GetxController {
     selectenddate.value = enddate;
 
     fetchorder(startdate, enddate);
-
+    addItems();
     super.onInit();
+  }
+
+  addItems() async {
+    print('on scrollllllll');
+    controller.addListener(() {
+      if (controller.position.maxScrollExtent == controller.position.pixels) {
+        start.value = orderlisting[0].order!.length;
+        callnew(selectfirstdate.value, selectenddate.value);
+      }
+    });
   }
 
   updateStoreName(int val) {
@@ -46,7 +59,6 @@ class OrderController extends GetxController {
   }
 
   Future<void> fetchorder(startdate, enddate) async {
-    
     isLoading.value = true;
     print("start date is $startdate  end date is $enddate");
     print('picked  and open is  $selectstatus');
@@ -102,9 +114,10 @@ class OrderController extends GetxController {
   }
 
   Future callnew(startdate, enddate) async {
+    loaddata.value = 'true';
     print("start date is $startdate  end date is $enddate");
     print('start number is $start');
-    print('end number is $limit');
+    print('end number issssssssssssssssssssssss $limit');
     String home_url = request.mainurl +
         "/api/valet/order/show?date_from=$startdate&date_to=$enddate&room=$roomnunber&status=$selectstatus&search[value]=$search&start=$start&length=$limit";
     try {
@@ -120,7 +133,7 @@ class OrderController extends GetxController {
 
       final response = await http.get(Uri.parse(home_url), headers: header);
 
-      print("response body: url hit good: ${response.body.toString()}");
+      print("response body: url hit  ${response.body.toString()}");
 
       if (response.statusCode == 200) {
         Orderlist _albumModel = Orderlist.fromJson(jsonDecode(response.body));
@@ -147,9 +160,9 @@ class OrderController extends GetxController {
           print('$i is ${orderlisting[0].order![i].name}');
         }
 
-        isLoading.value = false;
         roomnunber.value = '';
         orderlisting.refresh();
+        loaddata.value = 'false';
         // selectstatus.value = '';
         update();
       } else {
