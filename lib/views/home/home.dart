@@ -861,12 +861,10 @@ class _HomeState extends State<Home> {
                     ),
                   ),
           ),
-
           Center(
               child: Obx(() => home_controller.loaddata.value == 'true'
-                  ? CircularProgressIndicator()
+                  ? skelton()
                   : Container()))
-  
         ],
       ),
     );
@@ -1637,5 +1635,196 @@ class _HomeState extends State<Home> {
       home_controller.selectfirstdate.value = preyearfistdate.toString();
       home_controller.selectenddate.value = preyearlastdate.toString();
     }
+  }
+
+  skelton() {
+    return ListView.builder(
+      shrinkWrap: true,
+      scrollDirection: Axis.vertical,
+      itemCount: 2,
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 3),
+          child: Container(
+            color: Color.fromRGBO(255, 255, 255, 1),
+            child: Padding(
+                padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Customer',
+                                  style: TextStyle(
+                                    //  fontWeight: FontWeight.w500,
+                                    fontSize: 10.0,
+                                    color: Color.fromRGBO(93, 93, 106, 1),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Container(
+                                  height: 10,
+                                  width: 40,
+                                  color: Color.fromARGB(255, 176, 176, 176),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Order Ref#',
+                                  style: TextStyle(
+                                    //  fontWeight: FontWeight.w500,
+                                    fontSize: 10.0,
+                                    color: Color.fromRGBO(93, 93, 106, 1),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Container(
+                                  height: 10,
+                                  width: 40,
+                                  color: Color.fromARGB(255, 176, 176, 176),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Phone#',
+                                  style: TextStyle(
+                                    //  fontWeight: FontWeight.w500,
+                                    fontSize: 10.0,
+                                    color: Color.fromRGBO(93, 93, 106, 1),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Container(
+                                  height: 10,
+                                  width: 40,
+                                  color: Color.fromARGB(255, 176, 176, 176),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Room#',
+                                  style: TextStyle(
+                                    //  fontWeight: FontWeight.w500,
+                                    fontSize: 10.0,
+                                    color: Color.fromRGBO(93, 93, 106, 1),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Container(
+                                  height: 10,
+                                  width: 40,
+                                  color: Color.fromARGB(255, 176, 176, 176),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 15,
+                                      width: 50,
+                                      color: Color.fromARGB(255, 176, 176, 176),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Order Time',
+                                  style: TextStyle(
+                                    //  fontWeight: FontWeight.w500,
+                                    fontSize: 10.0,
+                                    color: Color.fromRGBO(93, 93, 106, 1),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Container(
+                                    height: 10,
+                                    width: 40,
+                                    color: Color.fromARGB(255, 176, 176, 176)),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                  ],
+                )),
+          ),
+        );
+      },
+    );
   }
 }
