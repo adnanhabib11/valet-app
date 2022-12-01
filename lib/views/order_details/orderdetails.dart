@@ -135,19 +135,22 @@ class _OrderdetailsState extends State<Orderdetails> {
                               padding: const EdgeInsets.all(14.0),
                               child: Row(
                                 children: [
-                                  Image.network(
-                                      request.awsPath +
-                                          'customers/' +
-                                          auth_controller
-                                              .getcustomerlogo()
-                                              .toString(),
-                                      // height: 240,
-                                      width: 170, errorBuilder:
-                                          (BuildContext context,
-                                              Object exception,
-                                              StackTrace? stackTrace) {
-                                    return const Text('');
-                                  }),
+                                  Container(
+                                    width: 120,
+                                    child: Image.network(
+                                        request.awsPath +
+                                            'customers/' +
+                                            auth_controller
+                                                .getcustomerlogo()
+                                                .toString(),
+                                        // height: 240,
+                                        //width: 170,
+                                        errorBuilder: (BuildContext context,
+                                            Object exception,
+                                            StackTrace? stackTrace) {
+                                      return const Text('');
+                                    }),
+                                  ),
                                   SizedBox(
                                     width: 10,
                                   ),
@@ -1059,7 +1062,6 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                     SizedBox(
                                                       height: 5,
                                                     ),
-                                               
                                                     Text(
                                                       //   '\$50',
                                                       orderdetail_controller
@@ -1448,6 +1450,4 @@ class _OrderdetailsState extends State<Orderdetails> {
 
     priceis = 0;
   }
-
-
 }
