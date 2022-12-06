@@ -22,6 +22,7 @@ class _OrderdetailsState extends State<Orderdetails> {
   // String price = '0';
   String rate = '0';
   String price = '0';
+  String total = '0';
 
   @override
   Widget build(BuildContext context) {
@@ -809,295 +810,285 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                       .valetOrderItem!
                                                       .length;
                                               items++)
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      'Item#',
-                                                      style: TextStyle(
-                                                        //  fontWeight: FontWeight.w500,
-                                                        fontSize: 10.0,
-                                                        color: Color.fromRGBO(
-                                                            93, 93, 106, 1),
+                                            Padding(
+                                              padding: EdgeInsets.fromLTRB(
+                                                  0, 0, 0, 12),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        'Item#',
+                                                        style: TextStyle(
+                                                          //  fontWeight: FontWeight.w500,
+                                                          fontSize: 10.0,
+                                                          color: Color.fromRGBO(
+                                                              93, 93, 106, 1),
+                                                        ),
                                                       ),
-                                                    ),
-                                                    SizedBox(
-                                                      height: 5,
-                                                    ),
-                                                    Text(
-                                                      //'52223',
-                                                      orderdetail_controller
-                                                                  .orderdetails[
-                                                                      0]
-                                                                  .order!
-                                                                  .service![
-                                                                      services]
-                                                                  .valetOrderItem![
-                                                                      items]
-                                                                  .itemNumber
-                                                                  .toString() !=
-                                                              null
-                                                          ? orderdetail_controller
-                                                              .orderdetails[0]
-                                                              .order!
-                                                              .service![
-                                                                  services]
-                                                              .valetOrderItem![
-                                                                  items]
-                                                              .itemNumber
-                                                              .toString()
-                                                          : '',
+                                                      SizedBox(
+                                                        height: 5,
+                                                      ),
+                                                      Text(
+                                                        //'52223',
+                                                        orderdetail_controller
+                                                                    .orderdetails[
+                                                                        0]
+                                                                    .order!
+                                                                    .service![
+                                                                        services]
+                                                                    .valetOrderItem![
+                                                                        items]
+                                                                    .itemNumber
+                                                                    .toString() !=
+                                                                null
+                                                            ? orderdetail_controller
+                                                                .orderdetails[0]
+                                                                .order!
+                                                                .service![
+                                                                    services]
+                                                                .valetOrderItem![
+                                                                    items]
+                                                                .itemNumber
+                                                                .toString()
+                                                            : '',
 
-                                                      style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        fontSize: 10.0,
-                                                        color: Color.fromRGBO(
-                                                            93, 93, 106, 1),
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          fontSize: 10.0,
+                                                          color: Color.fromRGBO(
+                                                              93, 93, 106, 1),
+                                                        ),
                                                       ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      'Item Name',
-                                                      style: TextStyle(
-                                                        //  fontWeight: FontWeight.w500,
-                                                        fontSize: 10.0,
-                                                        color: Color.fromRGBO(
-                                                            93, 93, 106, 1),
+                                                    ],
+                                                  ),
+                                                  Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        'Item Name',
+                                                        style: TextStyle(
+                                                          //  fontWeight: FontWeight.w500,
+                                                          fontSize: 10.0,
+                                                          color: Color.fromRGBO(
+                                                              93, 93, 106, 1),
+                                                        ),
                                                       ),
-                                                    ),
-                                                    SizedBox(
-                                                      height: 5,
-                                                    ),
-                                                    Text(
-                                                      //  'Sheets',
-                                                      orderdetail_controller
-                                                                  .orderdetails[
-                                                                      0]
-                                                                  .order!
-                                                                  .service![
-                                                                      services]
-                                                                  .valetOrderItem![
-                                                                      items]
-                                                                  .name
-                                                                  .toString() !=
-                                                              null
-                                                          ? orderdetail_controller
-                                                              .orderdetails[0]
-                                                              .order!
-                                                              .service![
-                                                                  services]
-                                                              .valetOrderItem![
-                                                                  items]
-                                                              .name
-                                                              .toString()
-                                                          : '',
-                                                      style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        fontSize: 10.0,
-                                                        color: Color.fromRGBO(
-                                                            93, 93, 106, 1),
+                                                      SizedBox(
+                                                        height: 5,
                                                       ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      'Order QTY',
-                                                      style: TextStyle(
-                                                        //  fontWeight: FontWeight.w500,
-                                                        fontSize: 10.0,
-                                                        color: Color.fromRGBO(
-                                                            93, 93, 106, 1),
+                                                      Text(
+                                                        //  'Sheets',
+                                                        orderdetail_controller
+                                                                    .orderdetails[
+                                                                        0]
+                                                                    .order!
+                                                                    .service![
+                                                                        services]
+                                                                    .valetOrderItem![
+                                                                        items]
+                                                                    .name
+                                                                    .toString() !=
+                                                                null
+                                                            ? orderdetail_controller
+                                                                .orderdetails[0]
+                                                                .order!
+                                                                .service![
+                                                                    services]
+                                                                .valetOrderItem![
+                                                                    items]
+                                                                .name
+                                                                .toString()
+                                                            : '',
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          fontSize: 10.0,
+                                                          color: Color.fromRGBO(
+                                                              93, 93, 106, 1),
+                                                        ),
                                                       ),
-                                                    ),
-                                                    SizedBox(
-                                                      height: 5,
-                                                    ),
-                                                    Text(
-                                                      //  '5',
-                                                      orderdetail_controller
-                                                                  .orderdetails[
-                                                                      0]
-                                                                  .order!
-                                                                  .service![
-                                                                      services]
-                                                                  .valetOrderItem![
-                                                                      items]
-                                                                  .quantity
-                                                                  .toString() !=
-                                                              null
-                                                          ? orderdetail_controller
-                                                              .orderdetails[0]
-                                                              .order!
-                                                              .service![
-                                                                  services]
-                                                              .valetOrderItem![
-                                                                  items]
-                                                              .quantity
-                                                              .toString()
-                                                          : '',
-                                                      style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        fontSize: 10.0,
-                                                        color: Color.fromRGBO(
-                                                            93, 93, 106, 1),
+                                                    ],
+                                                  ),
+                                                  Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        'Order QTY',
+                                                        style: TextStyle(
+                                                          //  fontWeight: FontWeight.w500,
+                                                          fontSize: 10.0,
+                                                          color: Color.fromRGBO(
+                                                              93, 93, 106, 1),
+                                                        ),
                                                       ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      'Rate',
-                                                      style: TextStyle(
-                                                        //  fontWeight: FontWeight.w500,
-                                                        fontSize: 10.0,
-                                                        color: Color.fromRGBO(
-                                                            93, 93, 106, 1),
+                                                      SizedBox(
+                                                        height: 5,
                                                       ),
-                                                    ),
-                                                    SizedBox(
-                                                      height: 5,
-                                                    ),
-                                                    Container(
-                                                      child: totalrate(
-                                                          orderdetail_controller
-                                                              .orderdetails[0]
-                                                              .order!
-                                                              .service![
-                                                                  services]
-                                                              .valetOrderItem![
-                                                                  items]
-                                                              .quantity,
-                                                          orderdetail_controller
-                                                              .orderdetails[0]
-                                                              .order!
-                                                              .service![
-                                                                  services]
-                                                              .valetOrderItem![
-                                                                  items]
-                                                              .price),
-                                                    ),
-                                                    Text(
-                                                      //  '\$650',
-                                                      rate,
-                                                      // double.parse(orderdetail_controller
-                                                      //             .orderdetails[
-                                                      //                 0]
-                                                      //             .order!
-                                                      //             .service![
-                                                      //                 services]
-                                                      //             .valetOrderItem![
-                                                      //                 items]
-                                                      //             .quantity
-                                                      //             .toString() +
-                                                      //         orderdetail_controller
-                                                      //             .orderdetails[
-                                                      //                 0]
-                                                      //             .order!
-                                                      //             .service![
-                                                      //                 services]
-                                                      //             .valetOrderItem![
-                                                      //                 items]
-                                                      //             .price
-                                                      //             .toString())
-                                                      //     .toString(),
-                                                      style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        fontSize: 10.0,
-                                                        color: Color.fromRGBO(
-                                                            93, 93, 106, 1),
+                                                      Text(
+                                                        //  '5',
+                                                        orderdetail_controller
+                                                                    .orderdetails[
+                                                                        0]
+                                                                    .order!
+                                                                    .service![
+                                                                        services]
+                                                                    .valetOrderItem![
+                                                                        items]
+                                                                    .quantity
+                                                                    .toString() !=
+                                                                null
+                                                            ? orderdetail_controller
+                                                                .orderdetails[0]
+                                                                .order!
+                                                                .service![
+                                                                    services]
+                                                                .valetOrderItem![
+                                                                    items]
+                                                                .quantity
+                                                                .toString()
+                                                            : '',
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          fontSize: 10.0,
+                                                          color: Color.fromRGBO(
+                                                              93, 93, 106, 1),
+                                                        ),
                                                       ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      'Price',
-                                                      style: TextStyle(
-                                                        //  fontWeight: FontWeight.w500,
-                                                        fontSize: 10.0,
-                                                        color: Color.fromRGBO(
-                                                            93, 93, 106, 1),
+                                                    ],
+                                                  ),
+                                                  Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        'Rate',
+                                                        style: TextStyle(
+                                                          //  fontWeight: FontWeight.w500,
+                                                          fontSize: 10.0,
+                                                          color: Color.fromRGBO(
+                                                              93, 93, 106, 1),
+                                                        ),
                                                       ),
-                                                    ),
-                                                    SizedBox(
-                                                      height: 5,
-                                                    ),
-                                                    Text(
-                                                      //   '\$50',
-                                                      orderdetail_controller
-                                                                  .orderdetails[
-                                                                      0]
-                                                                  .order!
-                                                                  .service![
-                                                                      services]
-                                                                  .valetOrderItem![
-                                                                      items]
-                                                                  .price
-                                                                  .toString() !=
-                                                              null
-                                                          ? '\$' +
-                                                              orderdetail_controller
-                                                                  .orderdetails[
-                                                                      0]
-                                                                  .order!
-                                                                  .service![
-                                                                      services]
-                                                                  .valetOrderItem![
-                                                                      items]
-                                                                  .price
-                                                                  .toString()
-                                                          : '',
-                                                      style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        fontSize: 10.0,
-                                                        color: Color.fromRGBO(
-                                                            93, 93, 106, 1),
+                                                      SizedBox(
+                                                        height: 5,
                                                       ),
-                                                    ),
-                                                  ],
-                                                )
-                                              ],
+                                                      Text(
+                                                        //  '\$650',
+                                                        orderdetail_controller
+                                                                    .orderdetails[
+                                                                        0]
+                                                                    .order!
+                                                                    .service![
+                                                                        services]
+                                                                    .valetOrderItem![
+                                                                        items]
+                                                                    .price
+                                                                    .toString() !=
+                                                                null
+                                                            ? '\$' +
+                                                                orderdetail_controller
+                                                                    .orderdetails[
+                                                                        0]
+                                                                    .order!
+                                                                    .service![
+                                                                        services]
+                                                                    .valetOrderItem![
+                                                                        items]
+                                                                    .price
+                                                                    .toString()
+                                                            : '',
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          fontSize: 10.0,
+                                                          color: Color.fromRGBO(
+                                                              93, 93, 106, 1),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Container(
+                                                    child: totalprice(
+                                                        orderdetail_controller
+                                                            .orderdetails[0]
+                                                            .order!
+                                                            .service![services]
+                                                            .valetOrderItem![
+                                                                items]
+                                                            .quantity,
+                                                        orderdetail_controller
+                                                            .orderdetails[0]
+                                                            .order!
+                                                            .service![services]
+                                                            .valetOrderItem![
+                                                                items]
+                                                            .price),
+                                                  ),
+                                                  Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        'Price',
+                                                        style: TextStyle(
+                                                          //  fontWeight: FontWeight.w500,
+                                                          fontSize: 10.0,
+                                                          color: Color.fromRGBO(
+                                                              93, 93, 106, 1),
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                        height: 5,
+                                                      ),
+                                                      Text(
+                                                        //   '\$50',
+                                                        rate,
+
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          fontSize: 10.0,
+                                                          color: Color.fromRGBO(
+                                                              93, 93, 106, 1),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Container(
+                                                    child: totalsum(rate),
+                                                  )
+                                                ],
+                                              ),
                                             ),
                                           SizedBox(
                                             height: 16,
@@ -1372,7 +1363,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                 ),
                               ),
                               Text(
-                                '\$650',
+                                '\$$total',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 12.0,
@@ -1438,7 +1429,7 @@ class _OrderdetailsState extends State<Orderdetails> {
             ]));
   }
 
-  totalrate(order, price) {
+  totalprice(order, price) {
     print('order is$order');
     print('order is$price');
     num orderis = order;
@@ -1449,5 +1440,14 @@ class _OrderdetailsState extends State<Orderdetails> {
     rate = removezeros.toString();
 
     priceis = 0;
+  }
+
+  totalsum(priceis) {
+    print('price is$priceis');
+    num princeis = double.parse(priceis);
+    num totl = double.parse(total);
+    princeis = princeis + totl;
+    print('price total  is$priceis');
+    total = princeis.toString();
   }
 }
