@@ -908,6 +908,7 @@ class _HomeState extends State<Home> {
                   onPressed: () {
                     var searchitem = searching.text.trim();
                     home_controller.search.value = searchitem.toString();
+                    home_controller.start.value = 0;
                     home_controller.fetchorder(
                         home_controller.selectfirstdate.value,
                         home_controller.selectenddate.value);
@@ -1145,6 +1146,7 @@ class _HomeState extends State<Home> {
                                   home_controller.roomnunber.value =
                                       roomno.toString();
 
+                                  home_controller.start.value = 0;
                                   callapi(
                                       home_controller.followerCount.toString());
                                   Get.back();
@@ -1184,6 +1186,7 @@ class _HomeState extends State<Home> {
                               //     shape: RoundedRectangleBorder(
                               //borderRadius: BorderRadius.circular(30)),
                               onPressed: () {
+                                home_controller.start.value = 0;
                                 var today = DateTime.now();
                                 var weekstart = DateFormat('yyyy-MM-dd').format(
                                     today.subtract(

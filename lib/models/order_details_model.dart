@@ -33,7 +33,7 @@ class Order {
   int? status;
   String? createdAt;
   String? updatedAt;
-  Null? deletedAt;
+
   List<Service>? service;
   Customer? customer;
 
@@ -51,7 +51,6 @@ class Order {
       this.status,
       this.createdAt,
       this.updatedAt,
-      this.deletedAt,
       this.service,
       this.customer});
 
@@ -69,7 +68,7 @@ class Order {
     status = json['status'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
-    deletedAt = json['deleted_at'];
+
     if (json['service'] != null) {
       service = <Service>[];
       json['service'].forEach((v) {
@@ -96,7 +95,7 @@ class Order {
     data['status'] = this.status;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
-    data['deleted_at'] = this.deletedAt;
+
     if (this.service != null) {
       data['service'] = this.service!.map((v) => v.toJson()).toList();
     }
@@ -193,7 +192,7 @@ class ValetOrderItem {
   int? organizationId;
   String? createdAt;
   String? updatedAt;
-  Null? deletedAt;
+
   String? price;
   int? quantity;
   int? orderItemId;
@@ -207,7 +206,7 @@ class ValetOrderItem {
       this.organizationId,
       this.createdAt,
       this.updatedAt,
-      this.deletedAt,
+   
       this.price,
       this.quantity,
       this.orderItemId,
@@ -221,7 +220,7 @@ class ValetOrderItem {
     organizationId = json['organization_id'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
-    deletedAt = json['deleted_at'];
+  
     price = json['price'];
     quantity = json['quantity'];
     orderItemId = json['order_item_id'];
@@ -237,7 +236,7 @@ class ValetOrderItem {
     data['organization_id'] = this.organizationId;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
-    data['deleted_at'] = this.deletedAt;
+
     data['price'] = this.price;
     data['quantity'] = this.quantity;
     data['order_item_id'] = this.orderItemId;
@@ -269,7 +268,7 @@ class Pivots {
 
 class Customer {
   int? id;
-  Null? groupId;
+
   String? customerNumber;
   String? name;
   String? glCode;
@@ -280,7 +279,7 @@ class Customer {
   String? specialCogPriceLabel;
   String? createdAt;
   String? updatedAt;
-  Null? deletedAt;
+  
   int? organizationId;
   int? customerType;
   String? contractExpiryDate;
@@ -297,7 +296,7 @@ class Customer {
 
   Customer(
       {this.id,
-      this.groupId,
+   
       this.customerNumber,
       this.name,
       this.glCode,
@@ -308,7 +307,7 @@ class Customer {
       this.specialCogPriceLabel,
       this.createdAt,
       this.updatedAt,
-      this.deletedAt,
+
       this.organizationId,
       this.customerType,
       this.contractExpiryDate,
@@ -325,7 +324,7 @@ class Customer {
 
   Customer.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    groupId = json['group_id'];
+  
     customerNumber = json['customer_number'];
     name = json['name'];
     glCode = json['gl_code'];
@@ -336,7 +335,7 @@ class Customer {
     specialCogPriceLabel = json['special_cog_price_label'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
-    deletedAt = json['deleted_at'];
+
     organizationId = json['organization_id'];
     customerType = json['customer_type'];
     contractExpiryDate = json['contract_expiry_date'];
@@ -357,7 +356,7 @@ class Customer {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
-    data['group_id'] = this.groupId;
+
     data['customer_number'] = this.customerNumber;
     data['name'] = this.name;
     data['gl_code'] = this.glCode;
@@ -368,7 +367,7 @@ class Customer {
     data['special_cog_price_label'] = this.specialCogPriceLabel;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
-    data['deleted_at'] = this.deletedAt;
+  
     data['organization_id'] = this.organizationId;
     data['customer_type'] = this.customerType;
     data['contract_expiry_date'] = this.contractExpiryDate;
