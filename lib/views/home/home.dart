@@ -1209,8 +1209,9 @@ class _HomeState extends State<Home> {
                                     today.add(new Duration(
                                         days: DateTime.daysPerWeek -
                                             today.weekday)));
-                                            home_controller.selectfirstdate.value = weekstart;
-     home_controller. selectenddate.value = weekend;
+                                home_controller.selectfirstdate.value =
+                                    weekstart;
+                                home_controller.selectenddate.value = weekend;
                                 home_controller.fetchorder(weekstart, weekend);
                                 Get.back();
                               },
