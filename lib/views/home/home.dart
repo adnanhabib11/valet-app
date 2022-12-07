@@ -67,7 +67,7 @@ class _HomeState extends State<Home> {
     'Last Month',
     'This Year',
     'Last Year',
-    'Select DateRange',
+    'Select Date Range',
   ];
 
   // int indexdaterange = 0;
@@ -886,7 +886,7 @@ class _HomeState extends State<Home> {
   SearchDialog() {
     return Dialog(
       alignment: Alignment.topRight,
-      insetPadding: EdgeInsets.only(right: 60, top: 100, left: 14),
+      insetPadding: EdgeInsets.only(right: 50, top: 115, left: 14),
       child: Container(
           height: 35,
           child: Row(
@@ -913,7 +913,7 @@ class _HomeState extends State<Home> {
                       //     /* Clear the search field */
                       //   },
                       // ),
-                      hintText: '  Search',
+                      hintText: ' Search',
                       border: InputBorder.none),
                 ),
               ),
@@ -952,7 +952,7 @@ class _HomeState extends State<Home> {
                   child: Card(
                     child: TextButton(
                       child: Text(
-                        'Signout',
+                        'Logout',
                         style: TextStyle(
                           //  fontWeight: FontWeight.w500,
                           fontSize: 10.0,
@@ -991,7 +991,7 @@ class _HomeState extends State<Home> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('Change Status'),
-          content: Text('Change order status ?'),
+          content: Text('Are you sure you want to change the order status ?'),
           actions: [
             FlatButton(
               textColor: Colors.black,
@@ -1009,7 +1009,7 @@ class _HomeState extends State<Home> {
                 orderstatus_controller.fetchorderstatus(id, index, status);
                 Get.back();
               },
-              child: Text('ACCEPT'),
+              child: Text('CONFIRM'),
             ),
           ],
         );
@@ -1209,6 +1209,8 @@ class _HomeState extends State<Home> {
                                     today.add(new Duration(
                                         days: DateTime.daysPerWeek -
                                             today.weekday)));
+                                            home_controller.selectfirstdate.value = weekstart;
+     home_controller. selectenddate.value = weekend;
                                 home_controller.fetchorder(weekstart, weekend);
                                 Get.back();
                               },
