@@ -326,6 +326,19 @@ class _HomeState extends State<Home> {
                 : Expanded(
                     child: Column(
                       children: [
+                        if (home_controller.orderlisting[0].order!.length == 0)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 40),
+                            child: Text(
+                              'No Record',
+                              style: TextStyle(
+                                //  fontWeight: FontWeight.w500,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16.0,
+                                color: Color.fromRGBO(93, 93, 106, 1),
+                              ),
+                            ),
+                          ),
                         Expanded(
                           //TODO: Add Expanded here
 
@@ -900,7 +913,7 @@ class _HomeState extends State<Home> {
                       //     /* Clear the search field */
                       //   },
                       // ),
-                      hintText: 'Search...',
+                      hintText: '  Search',
                       border: InputBorder.none),
                 ),
               ),

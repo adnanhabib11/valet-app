@@ -59,6 +59,7 @@ class OrderController extends GetxController {
   }
 
   Future<void> fetchorder(startdate, enddate) async {
+    print('value in list is $orderlisting');
     isLoading.value = true;
     print("start date is $startdate  end date is $enddate");
     print('picked  and open is  $selectstatus');
