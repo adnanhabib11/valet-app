@@ -608,17 +608,15 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                           child: Row(
                                                             children: [
                                                               SizedBox(
-                                                                width: 5,
-                                                              ),
-                                                              SvgPicture.asset(
-                                                                'imagessvg/tabler_switch-2.svg',
-                                                                //   height: 20.0,
-                                                                // width: 20.0,
-                                                                //  allowDrawingOutsideViewBox: true,
-                                                              ),
-                                                              SizedBox(
                                                                 width: 8,
                                                               ),
+                                                              // SvgPicture.asset(
+                                                              //   'imagessvg/tabler_switch-2.svg',
+                                                              //   //   height: 20.0,
+                                                              //   // width: 20.0,
+                                                              //   //  allowDrawingOutsideViewBox: true,
+                                                              // ),
+
                                                               Text(
                                                                 orderdetail_controller
                                                                             .orderdetails[0]
@@ -681,7 +679,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                               .orderDate
                                                               .toString()
                                                               .split(" ")
-                                                              .last
+                                                              .first
                                                           : '',
 
                                                       style: TextStyle(
@@ -716,7 +714,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                               child: Container(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  'Order Time',
+                                  'Order Summary',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 10.0,

@@ -740,13 +740,17 @@ class _HomeState extends State<Home> {
                                                                         width:
                                                                             5,
                                                                       ),
-                                                                      SvgPicture
-                                                                          .asset(
-                                                                        'imagessvg/tabler_switch-2.svg',
-                                                                        //   height: 20.0,
-                                                                        // width: 20.0,
-                                                                        //  allowDrawingOutsideViewBox: true,
-                                                                      ),
+                                                                      if (home_controller
+                                                                              .orderlisting[0]
+                                                                              .order![index]
+                                                                              .status ==
+                                                                          0)
+                                                                        SvgPicture.asset(
+                                                                          'imagessvg/tabler_switch-2.svg',
+                                                                          //   height: 20.0,
+                                                                          // width: 20.0,
+                                                                          //  allowDrawingOutsideViewBox: true,
+                                                                        ),
                                                                       SizedBox(
                                                                         width:
                                                                             8,
