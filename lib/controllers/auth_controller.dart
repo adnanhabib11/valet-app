@@ -82,6 +82,8 @@ class AuthenticationManagerController extends GetxController with CacheManager {
     removeOrganizationid();
     removeCustomerLogo();
     removeLaundrylogo();
+  Get.deleteAll();
+
     // Get.to(Login());
   }
 
