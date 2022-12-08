@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 import '../../controllers/auth_controller.dart';
 import '../../controllers/orderdetail_Controller.dart';
@@ -23,7 +24,7 @@ class _OrderdetailsState extends State<Orderdetails> {
   String rate = '0';
   String price = '0';
   String total = '0';
-
+  String dateis = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -664,23 +665,23 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                     SizedBox(
                                                       height: 5,
                                                     ),
+                                                    if (orderdetail_controller
+                                                            .orderdetails[0]
+                                                            .order!
+                                                            .orderDate
+                                                            .toString() !=
+                                                        null)
+                                                      Container(
+                                                        child: changedateformate(
+                                                            orderdetail_controller
+                                                                .orderdetails[0]
+                                                                .order!
+                                                                .orderDate
+                                                                .toString()),
+                                                      ),
                                                     Text(
                                                       ///'Sep 05, 2022',
-                                                      orderdetail_controller
-                                                                  .orderdetails[
-                                                                      0]
-                                                                  .order!
-                                                                  .orderDate
-                                                                  .toString() !=
-                                                              null
-                                                          ? orderdetail_controller
-                                                              .orderdetails[0]
-                                                              .order!
-                                                              .orderDate
-                                                              .toString()
-                                                              .split(" ")
-                                                              .first
-                                                          : '',
+                                                      dateis,
 
                                                       style: TextStyle(
                                                         fontWeight:
@@ -1447,5 +1448,19 @@ class _OrderdetailsState extends State<Orderdetails> {
     princeis = princeis + totl;
     print('price total  is$priceis');
     total = princeis.toString();
+  }
+
+  changedateformate(var date) {
+    print('date is $date');
+    // var inputFormat = DateFormat('dd/MM/yyyy HH:mm');
+    // var inputDate = inputFormat.parse(date);
+    var localDate = DateTime.parse(date).toLocal();
+    // var inputFormat = DateFormat('M-dd-yyyy');
+    // var inputDate = inputFormat.parse(localDate.toString());
+    // var myDate = DateFormat('').parse(date);
+    dateis = DateFormat.yMMMMd().format(localDate);
+    print('nnnnnnnn${DateFormat.yMMMMd().format(localDate)}');
+    dateis = DateFormat.yMMMMd().format(localDate);
+    print('object$dateis');
   }
 }

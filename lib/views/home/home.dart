@@ -51,6 +51,7 @@ class _HomeState extends State<Home> {
   Color _c = Colors.redAccent;
   Daterange? _daterange;
   bool onclick = true;
+  String dateis = '';
 
   void checkRadio(String value) {
     setState(() {
@@ -819,7 +820,7 @@ class _HomeState extends State<Home> {
                                                             .start,
                                                     children: [
                                                       Text(
-                                                        'Order Time',
+                                                        'Order Date',
                                                         style: TextStyle(
                                                           //  fontWeight: FontWeight.w500,
                                                           fontSize: 10.0,
@@ -830,23 +831,23 @@ class _HomeState extends State<Home> {
                                                       SizedBox(
                                                         height: 5,
                                                       ),
-                                                      Text(
-                                                        home_controller
+                                                      if (home_controller
+                                                              .orderlisting[0]
+                                                              .order![index]
+                                                              .orderDate
+                                                              .toString() !=
+                                                          null)
+                                                        Container(
+                                                            child: changedateformate(
+                                                                home_controller
                                                                     .orderlisting[
                                                                         0]
                                                                     .order![
                                                                         index]
                                                                     .orderDate
-                                                                    .toString() !=
-                                                                null
-                                                            ? home_controller
-                                                                .orderlisting[0]
-                                                                .order![index]
-                                                                .orderDate
-                                                                .toString()
-                                                                .split(" ")
-                                                                .first
-                                                            : '',
+                                                                    .toString())),
+                                                      Text(
+                                                        dateis,
                                                         style: TextStyle(
                                                           fontWeight:
                                                               FontWeight.w700,
@@ -1849,5 +1850,19 @@ class _HomeState extends State<Home> {
         );
       },
     );
+  }
+
+  changedateformate(var date) {
+    print('date is $date');
+    // var inputFormat = DateFormat('dd/MM/yyyy HH:mm');
+    // var inputDate = inputFormat.parse(date);
+    var localDate = DateTime.parse(date).toLocal();
+    // var inputFormat = DateFormat('M-dd-yyyy');
+    // var inputDate = inputFormat.parse(localDate.toString());
+    // var myDate = DateFormat('').parse(date);
+    dateis = DateFormat.yMMMMd().format(localDate);
+    print('nnnnnnnn${DateFormat.yMMMMd().format(localDate)}');
+    dateis = DateFormat.yMMMMd().format(localDate);
+    print('object$dateis');
   }
 }
