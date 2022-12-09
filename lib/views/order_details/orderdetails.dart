@@ -1458,9 +1458,8 @@ class _OrderdetailsState extends State<Orderdetails> {
     // var inputFormat = DateFormat('M-dd-yyyy');
     // var inputDate = inputFormat.parse(localDate.toString());
     // var myDate = DateFormat('').parse(date);
-    dateis = DateFormat.yMMMMd().format(localDate);
-    print('nnnnnnnn${DateFormat.yMMMMd().format(localDate)}');
-    dateis = DateFormat.yMMMMd().format(localDate);
+    dateis = DateFormat.yMMMd().format(localDate);
+
     print('object$dateis');
   }
 }

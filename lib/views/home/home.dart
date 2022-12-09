@@ -1204,6 +1204,7 @@ class _HomeState extends State<Home> {
                               //     shape: RoundedRectangleBorder(
                               //borderRadius: BorderRadius.circular(30)),
                               onPressed: () {
+                                room.text = '';
                                 home_controller.start.value = 0;
                                 var today = DateTime.now();
                                 var weekstart = DateFormat('yyyy-MM-dd').format(
@@ -1860,9 +1861,8 @@ class _HomeState extends State<Home> {
     // var inputFormat = DateFormat('M-dd-yyyy');
     // var inputDate = inputFormat.parse(localDate.toString());
     // var myDate = DateFormat('').parse(date);
-    dateis = DateFormat.yMMMMd().format(localDate);
-    print('nnnnnnnn${DateFormat.yMMMMd().format(localDate)}');
-    dateis = DateFormat.yMMMMd().format(localDate);
+    dateis = DateFormat.yMMMd().format(localDate);
+
     print('object$dateis');
   }
 }
