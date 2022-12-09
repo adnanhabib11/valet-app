@@ -897,29 +897,32 @@ class _HomeState extends State<Home> {
           child: Row(
             children: [
               Expanded(
-                child: TextField(
-                  controller: searching,
-                  decoration: InputDecoration(
-                      // suffixIcon: IconButton(
-                      //   icon: IconButton(
-                      //       onPressed: () {
-                      //         var searchitem = searching.text.trim();
-                      //         home_controller.search.value = searchitem.toString();
-                      //         home_controller.fetchorder(
-                      //             home_controller.selectfirstdate.value,
-                      //             home_controller.selectenddate.value);
-                      //         Get.back();
-                      //         //  home_controller.search = searching.text.toString();
-                      //       },
-                      //       icon: const Icon(
-                      //         Icons.search,
-                      //       )),
-                      //   onPressed: () {
-                      //     /* Clear the search field */
-                      //   },
-                      // ),
-                      hintText: ' Search',
-                      border: InputBorder.none),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 7),
+                  child: TextField(
+                    controller: searching,
+                    decoration: InputDecoration(
+                        // suffixIcon: IconButton(
+                        //   icon: IconButton(
+                        //       onPressed: () {
+                        //         var searchitem = searching.text.trim();
+                        //         home_controller.search.value = searchitem.toString();
+                        //         home_controller.fetchorder(
+                        //             home_controller.selectfirstdate.value,
+                        //             home_controller.selectenddate.value);
+                        //         Get.back();
+                        //         //  home_controller.search = searching.text.toString();
+                        //       },
+                        //       icon: const Icon(
+                        //         Icons.search,
+                        //       )),
+                        //   onPressed: () {
+                        //     /* Clear the search field */
+                        //   },
+                        // ),
+                        hintText: 'Search',
+                        border: InputBorder.none),
+                  ),
                 ),
               ),
               IconButton(
