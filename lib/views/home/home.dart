@@ -925,22 +925,23 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
-              IconButton(
-                  onPressed: () {
-                    var searchitem = searching.text.trim();
-                    home_controller.search.value = searchitem.toString();
-                    home_controller.start.value = 0;
-                    home_controller.fetchorder(
-                        home_controller.selectfirstdate.value,
-                        home_controller.selectenddate.value);
-                    searching.text = ''.toString();
-                    Get.back();
-                    //  home_controller.search = searching.text.toString();
-                  },
-                  icon: const Icon(
-                    Icons.search,
-                    size: 20,
-                  ))
+              Container(
+                color: Color.fromRGBO(9, 85, 193, 1),
+                child: IconButton(
+                    onPressed: () {
+                      var searchitem = searching.text.trim();
+                      home_controller.search.value = searchitem.toString();
+                      home_controller.start.value = 0;
+                      home_controller.fetchorder(
+                          home_controller.selectfirstdate.value,
+                          home_controller.selectenddate.value);
+                      searching.text = ''.toString();
+                      Get.back();
+                      //  home_controller.search = searching.text.toString();
+                    },
+                    icon: const Icon(Icons.search,
+                        size: 20, color: Colors.white)),
+              )
             ],
           )),
     );
