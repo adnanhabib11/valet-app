@@ -25,6 +25,7 @@ class _OrderdetailsState extends State<Orderdetails> {
   String price = '0';
   String total = '0';
   String dateis = '';
+  String rateis = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -997,20 +998,17 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                       SizedBox(
                                                         height: 5,
                                                       ),
-                                                      Text(
-                                                        //  '\$650',
-                                                        orderdetail_controller
-                                                                    .orderdetails[
-                                                                        0]
-                                                                    .order!
-                                                                    .service![
-                                                                        services]
-                                                                    .valetOrderItem![
-                                                                        items]
-                                                                    .price
-                                                                    .toString() !=
-                                                                null
-                                                            ? '\$' +
+                                                      if (orderdetail_controller
+                                                              .orderdetails[0]
+                                                              .order!
+                                                              .service![
+                                                                  services]
+                                                              .valetOrderItem![
+                                                                  items]
+                                                              .price !=
+                                                          null)
+                                                        Container(
+                                                            child: removedercimal(
                                                                 orderdetail_controller
                                                                     .orderdetails[
                                                                         0]
@@ -1019,9 +1017,33 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                                         services]
                                                                     .valetOrderItem![
                                                                         items]
-                                                                    .price
-                                                                    .toString()
-                                                            : '',
+                                                                    .price)),
+                                                      Text(
+                                                        rateis,
+                                                        // \$650',
+                                                        // orderdetail_controller
+                                                        //             .orderdetails[
+                                                        //                 0]
+                                                        //             .order!
+                                                        //             .service![
+                                                        //                 services]
+                                                        //             .valetOrderItem![
+                                                        //                 items]
+                                                        //             .price
+                                                        //             .toString() !=
+                                                        //         null
+                                                        //     ? '\$' +
+                                                        //         orderdetail_controller
+                                                        //             .orderdetails[
+                                                        //                 0]
+                                                        //             .order!
+                                                        //             .service![
+                                                        //                 services]
+                                                        //             .valetOrderItem![
+                                                        //                 items]
+                                                        //             .price
+                                                        //             .toString()
+                                                        //     : '',
                                                         style: TextStyle(
                                                           fontWeight:
                                                               FontWeight.w700,
@@ -1461,5 +1483,14 @@ class _OrderdetailsState extends State<Orderdetails> {
     dateis = DateFormat.yMMMd().format(localDate);
 
     print('object$dateis');
+  }
+
+  removedercimal(decimalvalue) {
+    print('values gwet is ssss$decimalvalue');
+    num val = double.parse(decimalvalue);
+
+    String removezeros = val.toStringAsFixed(2);
+    rateis = removezeros.toString();
+    // print('aaaaaaaaaaaa$removezeros');
   }
 }
