@@ -69,7 +69,7 @@ class AuthenticationManagerController extends GetxController with CacheManager {
         print('RRRRRRRRRRRRRRRRRRRRRRRR${error}');
         validation_controller.showsnack(error);
          isLoading.value = false;
-        //show some error_validat.validateField(    "name", org_name.text.trim() )
+      
       }
     }).catchError((error) {
       print(error);

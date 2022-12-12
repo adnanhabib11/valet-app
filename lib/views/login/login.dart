@@ -205,7 +205,9 @@ class _LoginState extends State<Login> {
                             height: 50,
                             child: TextButton(
                               child: login_controller.isLoading.value
-                                  ? CircularProgressIndicator(color: Colors.white,)
+                                  ? CircularProgressIndicator(
+                                      color: Colors.white,
+                                    )
                                   : Text(
                                       'Login',
                                       //   'Login',
@@ -238,7 +240,7 @@ class _LoginState extends State<Login> {
 
                               onPressed: () {
                                 if (validation_controller.validateField(
-                                        "email", email.text.trim()) &&
+                                        "Email", email.text.trim()) &&
                                     validation_controller.validateField(
                                         "Password", password.text.trim())) {
                                   login_controller.login_function(
