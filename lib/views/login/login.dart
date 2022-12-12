@@ -77,7 +77,7 @@ class _LoginState extends State<Login> {
               ),
               SizedBox(height: 5),
               Text(
-                'Login',
+                'LOGIN',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 24.0,
@@ -209,7 +209,7 @@ class _LoginState extends State<Login> {
                                       color: Colors.white,
                                     )
                                   : Text(
-                                      'Login',
+                                      'LOGIN',
                                       //   'Login',
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,

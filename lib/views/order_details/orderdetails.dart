@@ -1135,7 +1135,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Total:',
+                                'TOTAL: ',
                                 style: TextStyle(
                                   //  fontWeight: FontWeight.w500,
                                   fontSize: 12.0,
@@ -1176,7 +1176,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                   child: Card(
                     child: TextButton(
                       child: Text(
-                        'Signout',
+                        'Logout',
                         style: TextStyle(
                           //  fontWeight: FontWeight.w500,
                           fontSize: 10.0,
