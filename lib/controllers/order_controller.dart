@@ -18,7 +18,7 @@ class OrderController extends GetxController {
   var loaddata = ''.obs;
 
   final auth_controller = Get.put(AuthenticationManagerController());
-  RxInt followerCount = 8.obs;
+  RxInt followerCount = 2.obs;
   var roomnunber = ''.obs;
   var selectstatus = '0'.obs;
   var selectfirstdate = ''.obs;

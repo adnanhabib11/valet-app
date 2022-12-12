@@ -68,7 +68,6 @@ class _HomeState extends State<Home> {
     'Last Month',
     'This Year',
     'Last Year',
-    'Select Date Range',
   ];
 
   // int indexdaterange = 0;
@@ -1208,6 +1207,7 @@ class _HomeState extends State<Home> {
                               //     shape: RoundedRectangleBorder(
                               //borderRadius: BorderRadius.circular(30)),
                               onPressed: () {
+                                home_controller.followerCount.value = 2;
                                 room.text = '';
                                 home_controller.start.value = 0;
                                 var today = DateTime.now();
