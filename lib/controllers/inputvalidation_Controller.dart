@@ -26,10 +26,21 @@ class InputVaildation extends GetxController {
     Get.snackbar(
       "Error",
       "$value",
-      
       snackPosition: SnackPosition.BOTTOM,
       backgroundColor: Color.fromARGB(255, 236, 69, 57),
     );
+    return false;
+  }
+
+  bool changestatus(String value) {
+    print("DDDDDDDDDDDDDDDDDDD$value");
+    if (value.trim().isEmpty) {
+      return true;
+    }
+
+    Get.snackbar("Change Order Status", "$value",
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Color.fromARGB(255, 43, 187, 48));
     return false;
   }
 }

@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import '../models/orderstatus_model.dart';
 import '../views/services.dart';
 import 'auth_controller.dart';
+import 'inputvalidation_Controller.dart';
 import 'order_controller.dart';
 
 class OrderStatus extends GetxController {
@@ -15,6 +16,7 @@ class OrderStatus extends GetxController {
   final home_controller = Get.put(OrderController());
   var isLoading = true.obs;
   services request = services();
+  final validation_controller = Get.put(InputVaildation());
   // final RxString rxstring = "".obs;
   // @override
   // void onInit() {
@@ -51,7 +53,7 @@ class OrderStatus extends GetxController {
             jsonResponse['data']['order_status'];
         home_controller.selectstatus.value = '0'.toString();
         //           home_controller.fetchorder(    home_controller.selectfirstdate.value, home_controller.selectenddate.value);
-
+        validation_controller.changestatus('Status has been changed successfully');
         isLoading.value = false;
         update();
       } else {
