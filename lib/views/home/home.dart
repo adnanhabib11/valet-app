@@ -935,6 +935,7 @@ class _HomeState extends State<Home> {
                           home_controller.selectfirstdate.value,
                           home_controller.selectenddate.value);
                       searching.text = ''.toString();
+
                       Get.back();
                       //  home_controller.search = searching.text.toString();
                     },
@@ -1207,6 +1208,7 @@ class _HomeState extends State<Home> {
                               //     shape: RoundedRectangleBorder(
                               //borderRadius: BorderRadius.circular(30)),
                               onPressed: () {
+                                home_controller.search.value = '';
                                 home_controller.followerCount.value = 2;
                                 room.text = '';
                                 home_controller.start.value = 0;

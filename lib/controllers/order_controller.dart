@@ -100,7 +100,7 @@ class OrderController extends GetxController {
 
         isLoading.value = false;
         roomnunber.value = '';
-        search.value = '';
+     
 
         // selectstatus.value = '';
         update();
