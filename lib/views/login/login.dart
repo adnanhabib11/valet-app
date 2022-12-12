@@ -204,23 +204,23 @@ class _LoginState extends State<Login> {
                       (() => Container(
                             height: 50,
                             child: TextButton(
-                              child: Text(
-                                login_controller.isLoading.value
-                                    ? 'processing'
-                                    : 'Login',
-                                //   'Login',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14.0,
-                                  color: Colors.white,
-                                ),
-                              ),
+                              child: login_controller.isLoading.value
+                                  ? CircularProgressIndicator(color: Colors.white,)
+                                  : Text(
+                                      'Login',
+                                      //   'Login',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14.0,
+                                        color: Colors.white,
+                                      ),
+                                    ),
 
                               style: ButtonStyle(
                                 backgroundColor:
                                     MaterialStateProperty.all<Color>(
                                         login_controller.isLoading.value
-                                            ? Colors.grey
+                                            ? Color.fromRGBO(9, 85, 193, 1)
                                             : Color.fromRGBO(9, 85, 193, 1)),
                                 shape: MaterialStateProperty.all<
                                     RoundedRectangleBorder>(
