@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
 
 import '../models/orderstatus_model.dart';
+import '../views/login/login.dart';
 import '../views/services.dart';
 import 'auth_controller.dart';
 import 'inputvalidation_Controller.dart';
@@ -56,7 +57,13 @@ class OrderStatus extends GetxController {
         validation_controller.changestatus('Status has been changed successfully');
         isLoading.value = false;
         update();
-      } else {
+      }
+      else if (response.statusCode == 400) {
+        print('logout');
+           auth_controller.logOut();
+                        Get.to(Login());
+      }
+       else {
         throw Exception('Failed to load ');
       }
     } catch (e) {

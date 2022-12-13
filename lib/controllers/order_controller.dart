@@ -7,6 +7,7 @@ import 'package:hotel_vallet/models/orderlistmodel.dart';
 
 import 'package:http/http.dart' as http;
 
+import '../views/login/login.dart';
 import '../views/services.dart';
 import 'auth_controller.dart';
 import 'package:intl/intl.dart';
@@ -100,10 +101,13 @@ class OrderController extends GetxController {
 
         isLoading.value = false;
         roomnunber.value = '';
-     
 
         // selectstatus.value = '';
         update();
+      } else if (response.statusCode == 400) {
+        print('logout');
+         auth_controller.logOut();
+                        Get.to(Login());
       } else {
         throw Exception('Failed to load ');
       }
@@ -166,7 +170,13 @@ class OrderController extends GetxController {
         loaddata.value = 'false';
         // selectstatus.value = '';
         update();
-      } else {
+      } 
+       else if (response.statusCode == 400) {
+        print('logout');
+         auth_controller.logOut();
+                        Get.to(Login());
+      }
+      else {
         throw Exception('Failed to load ');
       }
     } catch (e) {
