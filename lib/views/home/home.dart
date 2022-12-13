@@ -1,3 +1,4 @@
+import 'package:avatar_view/avatar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hotel_vallet/views/order_details/orderdetails.dart';
@@ -92,7 +93,7 @@ class _HomeState extends State<Home> {
                       request.awsPath +
                           'profile/' +
                           auth_controller.getLaundrylogo().toString(),
-                      height: 40, errorBuilder: (BuildContext context,
+                      height: 45, errorBuilder: (BuildContext context,
                           Object exception, StackTrace? stackTrace) {
                     return const Text('');
                   }),
@@ -101,17 +102,51 @@ class _HomeState extends State<Home> {
                   // ),
                   Row(
                     children: [
-                      Image.network(
-                          request.awsPath +
-                              'customers/' +
-                              auth_controller.getcustomerlogo().toString(),
-                          height: 36, errorBuilder: (BuildContext context,
-                              Object exception, StackTrace? stackTrace) {
-                        return const Text('');
-                      }),
-                      // Image.asset(
-                      //   'images/Group 13833.png',
-                      // ),
+                      AvatarView(
+                        radius: 26,
+                        // borderColor: Colors.grey,
+                        avatarType: AvatarType.CIRCLE,
+                        //   backgroundColor: Colors.red,
+                        imagePath: request.awsPath +
+                            'customers/' +
+                            auth_controller.getcustomerlogo().toString(),
+                        placeHolder: Container(),
+                        errorWidget: Container(
+                          child: Icon(
+                            Icons.error,
+                            size: 50,
+                          ),
+                        ),
+                      ),
+
+                      // Container(
+                      //     child: AvatarView(
+                      //   radius: 33,
+                      //   //borderWidth: 8,
+                      //   // borderColor: Colors.yellow,
+                      //   avatarType: AvatarType.CIRCLE,
+                      //   //   backgroundColor: Colors.red,
+                      //   imagePath: request.awsPath +
+                      //       'customers/' +
+                      //       auth_controller.getcustomerlogo().toString(),
+                      //   placeHolder: Image.network(
+                      //     request.awsPath +
+                      //         'customers/' +
+                      //         auth_controller.getcustomerlogo().toString(),
+                      //     width: 50,
+                      //     height: 50,
+                      //     //fit: BoxFit.cover,
+                      //   ),
+                      // )),
+                      // Image.network(
+                      //     request.awsPath +
+                      //         'customers/' +
+                      //         auth_controller.getcustomerlogo().toString(),
+                      //     height: 36, errorBuilder: (BuildContext context,
+                      //         Object exception, StackTrace? stackTrace) {
+                      //   return const Text('');
+                      // }),
+
                       SizedBox(
                         width: 10,
                       ),
