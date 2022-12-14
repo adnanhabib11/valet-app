@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +17,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final login_controller = Get.put(AuthenticationManagerController());
   final validation_controller = Get.put(InputVaildation());
-  bool valuefirst = false;
+//  bool valuefirst = false;
 
   bool _showPassword = true;
   final email = TextEditingController();
@@ -68,7 +69,7 @@ class _LoginState extends State<Login> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
+              AutoSizeText(
                 'Proceed with your',
                 style: TextStyle(
                   fontSize: 16.0,
@@ -76,7 +77,7 @@ class _LoginState extends State<Login> {
                 ),
               ),
               SizedBox(height: 5),
-              Text(
+              AutoSizeText(
                 'LOGIN',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -171,31 +172,10 @@ class _LoginState extends State<Login> {
             height: 10,
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(1, 0, 14, 0),
+            padding: EdgeInsets.fromLTRB(14, 0, 14, 0),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Checkbox(
-                    checkColor: Colors.white,
-                    activeColor: Color.fromRGBO(9, 85, 193, 1),
-                    value: valuefirst,
-                    onChanged: (value) {
-                      setState(() {
-                        valuefirst = !valuefirst;
-                      });
-                    },
-                  ),
-                  Text(
-                    'Remember me',
-                    style: TextStyle(
-                      //   fontWeight: FontWeight.bold,
-                      fontSize: 12.0,
-                      color: Color.fromRGBO(50, 70, 78, 1),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 40,
-                  ),
                   Expanded(
                     //    margin: EdgeInsets.symmetric(horizontal: 15 ,vertical: 14),
                     //   color: Color.fromRGBO(23, 197, 204, 1),
@@ -208,7 +188,7 @@ class _LoginState extends State<Login> {
                                   ? CircularProgressIndicator(
                                       color: Colors.white,
                                     )
-                                  : Text(
+                                  : AutoSizeText(
                                       'LOGIN',
                                       //   'Login',
                                       style: TextStyle(

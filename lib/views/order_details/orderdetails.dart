@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -34,61 +35,62 @@ class _OrderdetailsState extends State<Orderdetails> {
             ? loadingPage.loader()
             : Column(
                 children: [
-                  SizedBox(height: 25),
-                  Container(
-                    color: Color.fromRGBO(255, 255, 255, 1),
-                    child: Padding(
-                      padding: const EdgeInsets.all(14.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Image.network(
-                            request.awsPath +
-                                'profile/' +
-                                auth_controller.getLaundrylogo().toString(),
-                            height: 40,
-                          ),
-                          Row(
-                            children: [
-                              Image.network(
-                                  request.awsPath +
-                                      'customers/' +
-                                      auth_controller
-                                          .getcustomerlogo()
-                                          .toString(),
-                                  height: 36, errorBuilder:
-                                      (BuildContext context, Object exception,
-                                          StackTrace? stackTrace) {
-                                return const Text('');
-                              }),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              InkWell(
-                                onTap: (() {
-                                  LogoutDialog();
-                                }),
-                                child: Icon(
-                                  Icons.keyboard_arrow_down,
-                                  color: Color.fromRGBO(156, 155, 174, 1),
+                  SizedBox(height: 23),
+                  // Container(
+                  //   color: Color.fromRGBO(255, 255, 255, 1),
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.all(14.0),
+                  //     child: Row(
+                  //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //       children: [
+                  //         Image.network(
+                  //           request.awsPath +
+                  //               'profile/' +
+                  //               auth_controller.getLaundrylogo().toString(),
+                  //           height: 40,
+                  //         ),
+                  //         Row(
+                  //           children: [
+                  //             Image.network(
+                  //                 request.awsPath +
+                  //                     'customers/' +
+                  //                     auth_controller
+                  //                         .getcustomerlogo()
+                  //                         .toString(),
+                  //                 height: 36, errorBuilder:
+                  //                     (BuildContext context, Object exception,
+                  //                         StackTrace? stackTrace) {
+                  //               return const Text('');
+                  //             }),
+                  //             SizedBox(
+                  //               width: 10,
+                  //             ),
+                  //             InkWell(
+                  //               onTap: (() {
+                  //                 LogoutDialog();
+                  //               }),
+                  //               child: Icon(
+                  //                 Icons.keyboard_arrow_down,
+                  //                 color: Color.fromRGBO(156, 155, 174, 1),
 
-                                  ///    size: 20.0,
-                                  //  semanticLabel: 'Text to announce in accessibility modes',
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  //                 ///    size: 20.0,
+                  //                 //  semanticLabel: 'Text to announce in accessibility modes',
+                  //               ),
+                  //             ),
+                  //           ],
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
                   Container(
                     decoration: BoxDecoration(
-                        color: Color.fromRGBO(9, 85, 193, 1),
-                        border: Border.all(
-                          color: Colors.black,
-                          width: 1,
-                        )),
+                      color: Color.fromRGBO(9, 85, 193, 1),
+                      // border: Border.all(
+                      //     //color: Colors.black,
+                      //     //    width: 1,
+                      //     )
+                    ),
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(0, 13, 0, 13),
                       child: Row(
@@ -109,7 +111,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                           ),
                           Expanded(
                             child: Center(
-                              child: Text(
+                              child: AutoSizeText(
                                 'Valet Orders',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
@@ -162,7 +164,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
+                                      AutoSizeText(
                                         'Customer Details',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
@@ -191,7 +193,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                 size: 12,
                                               ),
                                               SizedBox(width: 5),
-                                              Text(
+                                              AutoSizeText(
                                                 //  '/024477755422',
 
                                                 orderdetail_controller
@@ -235,7 +237,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                 size: 12,
                                               ),
                                               SizedBox(width: 5),
-                                              Text(
+                                              AutoSizeText(
                                                 //   'laundryname@email.com',
                                                 orderdetail_controller
                                                             .orderdetails[0]
@@ -278,7 +280,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                               Container(
                                                 child: SizedBox(
                                                   width: 150,
-                                                  child: Text(
+                                                  child: AutoSizeText(
                                                     //    '/132, My Street,Kingston, New York 12401, United States',
                                                     orderdetail_controller
                                                                 .orderdetails[0]
@@ -344,7 +346,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                 size: 12,
                                               ),
                                               SizedBox(width: 5),
-                                              Text(
+                                              AutoSizeText(
                                                 'not given',
                                                 // 'www.laundryname.com',
                                                 style: TextStyle(
@@ -394,7 +396,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
                                                   children: [
-                                                    Text(
+                                                    AutoSizeText(
                                                       'Guest',
                                                       style: TextStyle(
                                                         //  fontWeight: FontWeight.w500,
@@ -406,7 +408,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                     SizedBox(
                                                       height: 5,
                                                     ),
-                                                    Text(
+                                                    AutoSizeText(
                                                       //   'John Doe',
                                                       orderdetail_controller
                                                                   .orderdetails[
@@ -441,7 +443,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
                                                   children: [
-                                                    Text(
+                                                    AutoSizeText(
                                                       'Order Ref#',
                                                       style: TextStyle(
                                                         //  fontWeight: FontWeight.w500,
@@ -453,7 +455,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                     SizedBox(
                                                       height: 5,
                                                     ),
-                                                    Text(
+                                                    AutoSizeText(
                                                       // '492',
                                                       orderdetail_controller
                                                                   .orderdetails[
@@ -494,7 +496,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
                                                   children: [
-                                                    Text(
+                                                    AutoSizeText(
                                                       'Phone#',
                                                       style: TextStyle(
                                                         //  fontWeight: FontWeight.w500,
@@ -506,7 +508,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                     SizedBox(
                                                       height: 5,
                                                     ),
-                                                    Text(
+                                                    AutoSizeText(
                                                       // '(+1) 12345678',
                                                       orderdetail_controller
                                                                   .orderdetails[
@@ -541,7 +543,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
                                                   children: [
-                                                    Text(
+                                                    AutoSizeText(
                                                       'Room#',
                                                       style: TextStyle(
                                                         //  fontWeight: FontWeight.w500,
@@ -553,7 +555,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                     SizedBox(
                                                       height: 5,
                                                     ),
-                                                    Text(
+                                                    AutoSizeText(
                                                       //'405',
                                                       orderdetail_controller
                                                                   .orderdetails[
@@ -619,7 +621,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                               //   //  allowDrawingOutsideViewBox: true,
                                                               // ),
 
-                                                              Text(
+                                                              AutoSizeText(
                                                                 orderdetail_controller
                                                                             .orderdetails[0]
                                                                             .order!
@@ -654,7 +656,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
                                                   children: [
-                                                    Text(
+                                                    AutoSizeText(
                                                       'Order Date',
                                                       style: TextStyle(
                                                         //  fontWeight: FontWeight.w500,
@@ -680,7 +682,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                                 .orderDate
                                                                 .toString()),
                                                       ),
-                                                    Text(
+                                                    AutoSizeText(
                                                       ///'Sep 05, 2022',
                                                       dateis,
 
@@ -715,7 +717,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                               padding: const EdgeInsets.only(left: 16),
                               child: Container(
                                 alignment: Alignment.centerLeft,
-                                child: Text(
+                                child: AutoSizeText(
                                   'Order Summary',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w500,
@@ -759,7 +761,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                           ),
                                           Container(
                                             alignment: Alignment.centerLeft,
-                                            child: Text(
+                                            child: AutoSizeText(
                                               'Service Name',
                                               style: TextStyle(
                                                 //  fontWeight: FontWeight.w500,
@@ -774,7 +776,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                           ),
                                           Container(
                                             alignment: Alignment.centerLeft,
-                                            child: Text(
+                                            child: AutoSizeText(
                                               //  'Wash',
                                               orderdetail_controller
                                                           .orderdetails[0]
@@ -826,7 +828,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      Text(
+                                                      AutoSizeText(
                                                         'Item#',
                                                         style: TextStyle(
                                                           //  fontWeight: FontWeight.w500,
@@ -838,7 +840,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                       SizedBox(
                                                         height: 5,
                                                       ),
-                                                      Text(
+                                                      AutoSizeText(
                                                         //'52223',
                                                         orderdetail_controller
                                                                     .orderdetails[
@@ -880,7 +882,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      Text(
+                                                      AutoSizeText(
                                                         'Item Name',
                                                         style: TextStyle(
                                                           //  fontWeight: FontWeight.w500,
@@ -892,7 +894,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                       SizedBox(
                                                         height: 5,
                                                       ),
-                                                      Text(
+                                                      AutoSizeText(
                                                         //  'Sheets',
                                                         orderdetail_controller
                                                                     .orderdetails[
@@ -933,7 +935,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      Text(
+                                                      AutoSizeText(
                                                         'Order QTY',
                                                         style: TextStyle(
                                                           //  fontWeight: FontWeight.w500,
@@ -945,7 +947,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                       SizedBox(
                                                         height: 5,
                                                       ),
-                                                      Text(
+                                                      AutoSizeText(
                                                         //  '5',
                                                         orderdetail_controller
                                                                     .orderdetails[
@@ -986,7 +988,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      Text(
+                                                      AutoSizeText(
                                                         'Rate',
                                                         style: TextStyle(
                                                           //  fontWeight: FontWeight.w500,
@@ -1018,7 +1020,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                                     .valetOrderItem![
                                                                         items]
                                                                     .price)),
-                                                      Text(
+                                                      AutoSizeText(
                                                         rateis,
                                                         // \$650',
                                                         // orderdetail_controller
@@ -1079,7 +1081,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      Text(
+                                                      AutoSizeText(
                                                         'Price',
                                                         style: TextStyle(
                                                           //  fontWeight: FontWeight.w500,
@@ -1091,7 +1093,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                       SizedBox(
                                                         height: 5,
                                                       ),
-                                                      Text(
+                                                      AutoSizeText(
                                                         //   '\$50',
                                                         rate,
 
@@ -1134,7 +1136,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
+                              AutoSizeText(
                                 'TOTAL: ',
                                 style: TextStyle(
                                   //  fontWeight: FontWeight.w500,
@@ -1142,7 +1144,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                   color: Color.fromRGBO(255, 255, 255, 1),
                                 ),
                               ),
-                              Text(
+                              AutoSizeText(
                                 '\$$total',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
@@ -1162,52 +1164,52 @@ class _OrderdetailsState extends State<Orderdetails> {
     );
   }
 
-  LogoutDialog() {
-    return showDialog(
-        context: context,
-        builder: (_) =>
-            Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
-              // Aligns the container to center
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 35, 40, 0),
-                child: Container(
-                  // A simplified version of dialog.
+  // LogoutDialog() {
+  //   return showDialog(
+  //       context: context,
+  //       builder: (_) =>
+  //           Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+  //             // Aligns the container to center
+  //             Padding(
+  //               padding: const EdgeInsets.fromLTRB(0, 35, 40, 0),
+  //               child: Container(
+  //                 // A simplified version of dialog.
 
-                  child: Card(
-                    child: TextButton(
-                      child: Text(
-                        'Logout',
-                        style: TextStyle(
-                          //  fontWeight: FontWeight.w500,
-                          fontSize: 10.0,
-                          color: Color.fromRGBO(93, 93, 106, 1),
-                        ),
-                      ),
+  //                 child: Card(
+  //                   child: TextButton(
+  //                     child: AutoSizeText(
+  //                       'Logout',
+  //                       style: TextStyle(
+  //                         //  fontWeight: FontWeight.w500,
+  //                         fontSize: 10.0,
+  //                         color: Color.fromRGBO(93, 93, 106, 1),
+  //                       ),
+  //                     ),
 
-                      style: ButtonStyle(
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0),
+  //                     style: ButtonStyle(
+  //                       shape:
+  //                           MaterialStateProperty.all<RoundedRectangleBorder>(
+  //                         RoundedRectangleBorder(
+  //                           borderRadius: BorderRadius.circular(5.0),
 
-                            //   side: BorderSide(color: Colors.red.shade900),
-                          ),
-                        ),
-                      ),
-                      //      color: Colors.black,
-                      //  textColor: Colors.white,
-                      //     shape: RoundedRectangleBorder(
-                      //borderRadius: BorderRadius.circular(30)),
-                      onPressed: () {
-                        auth_controller.logOut();
-                        Get.to(Login());
-                      },
-                    ),
-                  ),
-                ),
-              )
-            ]));
-  }
+  //                           //   side: BorderSide(color: Colors.red.shade900),
+  //                         ),
+  //                       ),
+  //                     ),
+  //                     //      color: Colors.black,
+  //                     //  textColor: Colors.white,
+  //                     //     shape: RoundedRectangleBorder(
+  //                     //borderRadius: BorderRadius.circular(30)),
+  //                     onPressed: () {
+  //                       auth_controller.logOut();
+  //                       Get.to(Login());
+  //                     },
+  //                   ),
+  //                 ),
+  //               ),
+  //             )
+  //           ]));
+  // }
 
   totalprice(order, price) {
     print('order is$order');

@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class LoadingPage {
@@ -9,7 +10,7 @@ class LoadingPage {
           children: <Widget>[
             CircularProgressIndicator(color: Colors.blue),
             const SizedBox(height: 10),
-            Text('Loading', textAlign: TextAlign.center),
+          Text('Loading', textAlign: TextAlign.center),
           ],
         ),
       ],

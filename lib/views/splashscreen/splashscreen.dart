@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
@@ -181,7 +182,7 @@ class _SplashscreenState extends State<Splashscreen> {
               ),
             ),
             Center(
-              child: Text(
+              child: AutoSizeText(
                 'Valet Laundry Management',
                 style: TextStyle(
                   // fontWeight: FontWeight.w500,

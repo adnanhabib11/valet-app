@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:avatar_view/avatar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -169,28 +170,23 @@ class _HomeState extends State<Home> {
           ),
           Container(
             decoration: BoxDecoration(
-                color: Color.fromRGBO(9, 85, 193, 1),
-                border: Border.all(
-                  color: Colors.black,
-                  width: 1,
-                )),
+              color: Color.fromRGBO(9, 85, 193, 1),
+              // border: Border.all(
+              //   color: Colors.black,
+              //   width: 1,
+              // )
+            ),
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+              padding: const EdgeInsets.fromLTRB(20, 5, 5, 5),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Expanded(
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 70),
-                        child: Text(
-                          'Valet Orders',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16.0,
-                            color: Color.fromRGBO(255, 255, 255, 1),
-                          ),
-                        ),
-                      ),
+                  AutoSizeText(
+                    'Valet Orders',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16.0,
+                      color: Color.fromRGBO(255, 255, 255, 1),
                     ),
                   ),
                   Padding(
@@ -248,7 +244,7 @@ class _HomeState extends State<Home> {
                   child: Container(
                     height: 40,
                     child: TextButton(
-                      child: Text(
+                      child: AutoSizeText(
                         'OPEN',
                         style: TextStyle(
                             // fontWeight: FontWeight.bold,
@@ -306,7 +302,7 @@ class _HomeState extends State<Home> {
                   child: Container(
                     height: 40,
                     child: TextButton(
-                      child: Text(
+                      child: AutoSizeText(
                         'PICKED',
                         style: TextStyle(
                             // fontWeight: FontWeight.bold,
@@ -364,7 +360,7 @@ class _HomeState extends State<Home> {
                         if (home_controller.orderlisting[0].order!.length == 0)
                           Padding(
                             padding: const EdgeInsets.only(top: 40),
-                            child: Text(
+                            child: AutoSizeText(
                               'No Record',
                               style: TextStyle(
                                 //  fontWeight: FontWeight.w500,
@@ -415,7 +411,7 @@ class _HomeState extends State<Home> {
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      Text(
+                                                      AutoSizeText(
                                                         'Customer',
                                                         style: TextStyle(
                                                           //  fontWeight: FontWeight.w500,
@@ -427,7 +423,7 @@ class _HomeState extends State<Home> {
                                                       SizedBox(
                                                         height: 5,
                                                       ),
-                                                      Text(
+                                                      AutoSizeText(
                                                         home_controller
                                                                     .orderlisting[
                                                                         0]
@@ -462,7 +458,7 @@ class _HomeState extends State<Home> {
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      Text(
+                                                      AutoSizeText(
                                                         'Order Ref#',
                                                         style: TextStyle(
                                                           //  fontWeight: FontWeight.w500,
@@ -474,7 +470,7 @@ class _HomeState extends State<Home> {
                                                       SizedBox(
                                                         height: 5,
                                                       ),
-                                                      Text(
+                                                      AutoSizeText(
                                                         home_controller
                                                                     .orderlisting[
                                                                         0]
@@ -515,7 +511,7 @@ class _HomeState extends State<Home> {
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      Text(
+                                                      AutoSizeText(
                                                         'Phone#',
                                                         style: TextStyle(
                                                           //  fontWeight: FontWeight.w500,
@@ -527,7 +523,7 @@ class _HomeState extends State<Home> {
                                                       SizedBox(
                                                         height: 5,
                                                       ),
-                                                      Text(
+                                                      AutoSizeText(
                                                         home_controller
                                                                     .orderlisting[
                                                                         0]
@@ -562,7 +558,7 @@ class _HomeState extends State<Home> {
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      Text(
+                                                      AutoSizeText(
                                                         'Room#',
                                                         style: TextStyle(
                                                           //  fontWeight: FontWeight.w500,
@@ -574,7 +570,7 @@ class _HomeState extends State<Home> {
                                                       SizedBox(
                                                         height: 5,
                                                       ),
-                                                      Text(
+                                                      AutoSizeText(
                                                         home_controller
                                                                     .orderlisting[
                                                                         0]
@@ -790,7 +786,7 @@ class _HomeState extends State<Home> {
                                                                         width:
                                                                             8,
                                                                       ),
-                                                                      Text(
+                                                                      AutoSizeText(
                                                                         home_controller.orderlisting[0].order![index].status ==
                                                                                 0
                                                                             ? 'OPEN'
@@ -853,7 +849,7 @@ class _HomeState extends State<Home> {
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      Text(
+                                                      AutoSizeText(
                                                         'Order Date',
                                                         style: TextStyle(
                                                           //  fontWeight: FontWeight.w500,
@@ -880,7 +876,7 @@ class _HomeState extends State<Home> {
                                                                         index]
                                                                     .orderDate
                                                                     .toString())),
-                                                      Text(
+                                                      AutoSizeText(
                                                         dateis,
                                                         style: TextStyle(
                                                           fontWeight:
@@ -915,7 +911,7 @@ class _HomeState extends State<Home> {
           ),
           Center(
               child: Obx(() => home_controller.loaddata.value == 'true'
-                  ? skelton()
+                  ? CircularProgressIndicator()
                   : Container()))
         ],
       ),
@@ -989,14 +985,14 @@ class _HomeState extends State<Home> {
             Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
               // Aligns the container to center
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 35, 40, 0),
+                padding: const EdgeInsets.fromLTRB(0, 65, 20, 0),
                 child: Container(
                   // A simplified version of dialog.
 
                   child: Card(
                     child: TextButton(
-                      child: Text(
-                        'Logout',
+                      child: AutoSizeText(
+                        ' Logout ',
                         style: TextStyle(
                           //  fontWeight: FontWeight.w500,
                           fontSize: 10.0,
@@ -1103,12 +1099,12 @@ class _HomeState extends State<Home> {
                                 EdgeInsets.only(left: 10.0, right: 10.0),
                             labelText: "Room number",
                             hintStyle: TextStyle(
-                              fontSize: 10.0,
+                              fontSize: 12.0,
                               color: Color.fromRGBO(93, 93, 106, 1),
                               //  fontWeight: FontWeight.w500
                             ),
                             labelStyle: TextStyle(
-                              fontSize: 10.0,
+                              fontSize: 12.0,
                               color: Color.fromRGBO(93, 93, 106, 1),
                             ),
                           ),
@@ -1133,7 +1129,7 @@ class _HomeState extends State<Home> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Obx(
-                                  () => Text(
+                                  () => AutoSizeText(
                                     daterange[int.parse(home_controller
                                         .followerCount
                                         .toString())],
@@ -1141,7 +1137,7 @@ class _HomeState extends State<Home> {
 
                                         //  fontWeight: FontWeight.w500,
                                         fontSize: 10.0,
-                                        color: Color.fromRGBO(56, 70, 78, 1)),
+                                        color: Color.fromRGBO(93, 93, 93, 1)),
                                   ),
                                 ),
                                 // Text(
@@ -1171,7 +1167,7 @@ class _HomeState extends State<Home> {
                             child: Container(
                               height: 36,
                               child: TextButton(
-                                child: Text(
+                                child: AutoSizeText(
                                   'Apply Filter',
                                   style: TextStyle(
                                     // fontWeight: FontWeight.bold,
@@ -1215,7 +1211,7 @@ class _HomeState extends State<Home> {
                           Container(
                             height: 36,
                             child: TextButton(
-                              child: Text(
+                              child: AutoSizeText(
                                 'Reset',
                                 style: TextStyle(
                                   // fontWeight: FontWeight.bold,
@@ -1295,7 +1291,7 @@ class _HomeState extends State<Home> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(left: 30),
-                          child: Text(
+                          child: AutoSizeText(
                             'Select Date',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -1354,7 +1350,7 @@ class _HomeState extends State<Home> {
                             'Today',
                             style: TextStyle(
                               // fontWeight: FontWeight.bold,
-                              fontSize: 14.0,
+                              fontSize: 16.0,
                               color: Color.fromRGBO(93, 93, 106, 1),
                             ),
                           ),
@@ -1382,7 +1378,7 @@ class _HomeState extends State<Home> {
                             'Yesterday',
                             style: TextStyle(
                               // fontWeight: FontWeight.bold,
-                              fontSize: 14.0,
+                              fontSize: 16.0,
                               color: Color.fromRGBO(93, 93, 106, 1),
                             ),
                           ),
@@ -1409,7 +1405,7 @@ class _HomeState extends State<Home> {
                             'This Week',
                             style: TextStyle(
                               // fontWeight: FontWeight.bold,
-                              fontSize: 14.0,
+                              fontSize: 16.0,
                               color: Color.fromRGBO(93, 93, 106, 1),
                             ),
                           ),
@@ -1436,7 +1432,7 @@ class _HomeState extends State<Home> {
                             'Last Week',
                             style: TextStyle(
                               // fontWeight: FontWeight.bold,
-                              fontSize: 14.0,
+                              fontSize: 16.0,
                               color: Color.fromRGBO(93, 93, 106, 1),
                             ),
                           ),
@@ -1463,7 +1459,7 @@ class _HomeState extends State<Home> {
                             'This Month',
                             style: TextStyle(
                               // fontWeight: FontWeight.bold,
-                              fontSize: 14.0,
+                              fontSize: 16.0,
                               color: Color.fromRGBO(93, 93, 106, 1),
                             ),
                           ),
@@ -1490,7 +1486,7 @@ class _HomeState extends State<Home> {
                             'Last Month',
                             style: TextStyle(
                               // fontWeight: FontWeight.bold,
-                              fontSize: 14.0,
+                              fontSize: 16.0,
                               color: Color.fromRGBO(93, 93, 106, 1),
                             ),
                           ),
@@ -1517,7 +1513,7 @@ class _HomeState extends State<Home> {
                             'This Year',
                             style: TextStyle(
                               // fontWeight: FontWeight.bold,
-                              fontSize: 14.0,
+                              fontSize: 16.0,
                               color: Color.fromRGBO(93, 93, 106, 1),
                             ),
                           ),
@@ -1544,7 +1540,7 @@ class _HomeState extends State<Home> {
                             'Last Year',
                             style: TextStyle(
                               // fontWeight: FontWeight.bold,
-                              fontSize: 14.0,
+                              fontSize: 16.0,
                               color: Color.fromRGBO(93, 93, 106, 1),
                             ),
                           ),
@@ -1701,197 +1697,6 @@ class _HomeState extends State<Home> {
       home_controller.selectfirstdate.value = preyearfistdate.toString();
       home_controller.selectenddate.value = preyearlastdate.toString();
     }
-  }
-
-  skelton() {
-    return ListView.builder(
-      shrinkWrap: true,
-      scrollDirection: Axis.vertical,
-      itemCount: 2,
-      itemBuilder: (context, index) {
-        return Padding(
-          padding: const EdgeInsets.fromLTRB(16, 0, 16, 3),
-          child: Container(
-            color: Color.fromRGBO(255, 255, 255, 1),
-            child: Padding(
-                padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Customer',
-                                  style: TextStyle(
-                                    //  fontWeight: FontWeight.w500,
-                                    fontSize: 10.0,
-                                    color: Color.fromRGBO(93, 93, 106, 1),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Container(
-                                  height: 10,
-                                  width: 40,
-                                  color: Color.fromARGB(255, 176, 176, 176),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Order Ref#',
-                                  style: TextStyle(
-                                    //  fontWeight: FontWeight.w500,
-                                    fontSize: 10.0,
-                                    color: Color.fromRGBO(93, 93, 106, 1),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Container(
-                                  height: 10,
-                                  width: 40,
-                                  color: Color.fromARGB(255, 176, 176, 176),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Phone#',
-                                  style: TextStyle(
-                                    //  fontWeight: FontWeight.w500,
-                                    fontSize: 10.0,
-                                    color: Color.fromRGBO(93, 93, 106, 1),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Container(
-                                  height: 10,
-                                  width: 40,
-                                  color: Color.fromARGB(255, 176, 176, 176),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Room#',
-                                  style: TextStyle(
-                                    //  fontWeight: FontWeight.w500,
-                                    fontSize: 10.0,
-                                    color: Color.fromRGBO(93, 93, 106, 1),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Container(
-                                  height: 10,
-                                  width: 40,
-                                  color: Color.fromARGB(255, 176, 176, 176),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      height: 15,
-                                      width: 50,
-                                      color: Color.fromARGB(255, 176, 176, 176),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Order Time',
-                                  style: TextStyle(
-                                    //  fontWeight: FontWeight.w500,
-                                    fontSize: 10.0,
-                                    color: Color.fromRGBO(93, 93, 106, 1),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Container(
-                                    height: 10,
-                                    width: 40,
-                                    color: Color.fromARGB(255, 176, 176, 176)),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                  ],
-                )),
-          ),
-        );
-      },
-    );
   }
 
   changedateformate(var date) {
