@@ -483,53 +483,6 @@ class _HomeState extends State<Home> {
                                                             .start,
                                                     children: [
                                                       AutoSizeText(
-                                                        'Customer',
-                                                        style: TextStyle(
-                                                          //  fontWeight: FontWeight.w500,
-                                                          fontSize: 10.0,
-                                                          color: Color.fromRGBO(
-                                                              93, 93, 106, 1),
-                                                        ),
-                                                      ),
-                                                      SizedBox(
-                                                        height: 5,
-                                                      ),
-                                                      AutoSizeText(
-                                                        home_controller
-                                                                    .orderlisting[
-                                                                        0]
-                                                                    .order![
-                                                                        index]
-                                                                    .customerName
-                                                                    .toString() !=
-                                                                null
-                                                            ? home_controller
-                                                                .orderlisting[0]
-                                                                .order![index]
-                                                                .customerName
-                                                                .toString()
-                                                            : '',
-                                                        style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.w700,
-                                                          fontSize: 10.0,
-                                                          color: Color.fromRGBO(
-                                                              9, 85, 193, 1),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  SizedBox(
-                                                    height: 10,
-                                                  ),
-                                                  Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      AutoSizeText(
                                                         'Order Ref#',
                                                         style: TextStyle(
                                                           //  fontWeight: FontWeight.w500,
@@ -566,15 +519,9 @@ class _HomeState extends State<Home> {
                                                       ),
                                                     ],
                                                   ),
-                                                ],
-                                              ),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
+                                                  SizedBox(
+                                                    height: 10,
+                                                  ),
                                                   Column(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment.start,
@@ -619,9 +566,15 @@ class _HomeState extends State<Home> {
                                                       ),
                                                     ],
                                                   ),
-                                                  SizedBox(
-                                                    height: 10,
-                                                  ),
+                                                ],
+                                              ),
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
                                                   Column(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment.start,
@@ -656,6 +609,55 @@ class _HomeState extends State<Home> {
                                                                 .roomNumber
                                                                 .toString()
                                                             : '',
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          fontSize: 10.0,
+                                                          color: Color.fromRGBO(
+                                                              93, 93, 106, 1),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  SizedBox(
+                                                    height: 10,
+                                                  ),
+                                                  Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      AutoSizeText(
+                                                        'Order Placed on',
+                                                        style: TextStyle(
+                                                          //  fontWeight: FontWeight.w500,
+                                                          fontSize: 10.0,
+                                                          color: Color.fromRGBO(
+                                                              93, 93, 106, 1),
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                        height: 5,
+                                                      ),
+                                                      if (home_controller
+                                                              .orderlisting[0]
+                                                              .order![index]
+                                                              .orderDate
+                                                              .toString() !=
+                                                          null)
+                                                        Container(
+                                                            child: changedateformate(
+                                                                home_controller
+                                                                    .orderlisting[
+                                                                        0]
+                                                                    .order![
+                                                                        index]
+                                                                    .orderDate
+                                                                    .toString())),
+                                                      AutoSizeText(
+                                                        dateis,
                                                         style: TextStyle(
                                                           fontWeight:
                                                               FontWeight.w700,
@@ -921,7 +923,7 @@ class _HomeState extends State<Home> {
                                                             .start,
                                                     children: [
                                                       AutoSizeText(
-                                                        'Order Date',
+                                                        'Order Time',
                                                         style: TextStyle(
                                                           //  fontWeight: FontWeight.w500,
                                                           fontSize: 10.0,
@@ -932,23 +934,23 @@ class _HomeState extends State<Home> {
                                                       SizedBox(
                                                         height: 5,
                                                       ),
-                                                      if (home_controller
-                                                              .orderlisting[0]
-                                                              .order![index]
-                                                              .orderDate
-                                                              .toString() !=
-                                                          null)
-                                                        Container(
-                                                            child: changedateformate(
-                                                                home_controller
+                                                      AutoSizeText(
+                                                        home_controller
                                                                     .orderlisting[
                                                                         0]
                                                                     .order![
                                                                         index]
                                                                     .orderDate
-                                                                    .toString())),
-                                                      AutoSizeText(
-                                                        dateis,
+                                                                    .toString() !=
+                                                                null
+                                                            ? home_controller
+                                                                .orderlisting[0]
+                                                                .order![index]
+                                                                .orderDate
+                                                                .toString()
+                                                                .split(" ")
+                                                                .last
+                                                            : '',
                                                         style: TextStyle(
                                                           fontWeight:
                                                               FontWeight.w700,

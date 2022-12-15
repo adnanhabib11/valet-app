@@ -444,7 +444,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     AutoSizeText(
-                                                      'Order Ref#',
+                                                      'Room#',
                                                       style: TextStyle(
                                                         //  fontWeight: FontWeight.w500,
                                                         fontSize: 10.0,
@@ -456,18 +456,18 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                       height: 5,
                                                     ),
                                                     AutoSizeText(
-                                                      // '492',
+                                                      //'405',
                                                       orderdetail_controller
                                                                   .orderdetails[
                                                                       0]
                                                                   .order!
-                                                                  .referenceNumber
+                                                                  .roomNumber
                                                                   .toString() !=
                                                               null
                                                           ? orderdetail_controller
                                                               .orderdetails[0]
                                                               .order!
-                                                              .referenceNumber
+                                                              .roomNumber
                                                               .toString()
                                                           : '',
 
@@ -544,7 +544,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     AutoSizeText(
-                                                      'Room#',
+                                                      'Email',
                                                       style: TextStyle(
                                                         //  fontWeight: FontWeight.w500,
                                                         fontSize: 10.0,
@@ -561,13 +561,13 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                                   .orderdetails[
                                                                       0]
                                                                   .order!
-                                                                  .roomNumber
+                                                                  .email
                                                                   .toString() !=
                                                               null
                                                           ? orderdetail_controller
                                                               .orderdetails[0]
                                                               .order!
-                                                              .roomNumber
+                                                              .email
                                                               .toString()
                                                           : '',
 
