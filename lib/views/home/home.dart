@@ -236,54 +236,15 @@ class _HomeState extends State<Home> {
           SizedBox(
             height: 10,
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 3, 16, 3),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    height: 40,
-                    child: TextButton(
-                      child: AutoSizeText(
-                        'OPEN',
-                        style: TextStyle(
-                            // fontWeight: FontWeight.bold,
-                            fontSize: 11.0,
-                            color: onclick == false
-                                ? Color.fromRGBO(156, 155, 174, 1)
-                                : Colors.white),
-                      ),
-
-                      style: ButtonStyle(
-                        backgroundColor: onclick == false
-                            ? MaterialStateProperty.all<Color>(
-                                Color.fromARGB(95, 239, 239, 239))
-                            : MaterialStateProperty.all<Color>(
-                                Color.fromRGBO(9, 85, 193, 1)),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                              side: BorderSide(
-                                  color: Color.fromRGBO(156, 155, 174, 1))),
-                        ),
-                      ),
-
-                      //   style: ButtonStyle(
-                      // backgroundColor:MaterialStateProperty.all<Color>(
-                      //        Color.fromRGBO(52, 191, 163, 1
-                      //      )),
-                      //     shape: MaterialStateProperty.all<
-                      //         RoundedRectangleBorder>(
-                      //       RoundedRectangleBorder(
-                      //         borderRadius: BorderRadius.circular(10.0),
-
-                      //         //   side: BorderSide(color: Colors.red.shade900),
-                      //       ),
-                      //     ),
-                      //   ),
-
-                      onPressed: () {
+          Container(
+            color: Color.fromRGBO(255, 255, 255, 1),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 3, 16, 3),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
                         setState(() {
                           home_controller.selectstatus.value = '0'.toString();
                           home_controller.start.value = 0;
@@ -294,46 +255,92 @@ class _HomeState extends State<Home> {
                           onclick = true; //  Get.to(Orderdetails());
                         });
                       },
+                      child: Container(
+                        //   height: 40,
+                        child: Column(children: [
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Container(
+                            child: AutoSizeText(
+                              'OPEN',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 11.0,
+                                  color: onclick == false
+                                      ? Color.fromRGBO(156, 155, 174, 1)
+                                      : Color.fromRGBO(9, 85, 193, 1)),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 10),
+                            child: Container(
+                                height: 1,
+                                color: onclick == false
+                                    ? Color.fromRGBO(255, 255, 255, 1)
+                                    : Color.fromRGBO(9, 85, 193, 1)),
+                          ),
+                          // TextButton(
+                          //   child: AutoSizeText(
+                          //     'OPEN',
+                          //     style: TextStyle(
+                          //         // fontWeight: FontWeight.bold,
+                          //         fontSize: 11.0,
+                          //         color: onclick == false
+                          //             ? Color.fromRGBO(156, 155, 174, 1)
+                          //             : Colors.black),
+                          //   ),
+
+                          //   style: ButtonStyle(
+                          //     // backgroundColor: onclick == false
+                          //     //     ? MaterialStateProperty.all<Color>(
+                          //     //         Color.fromARGB(95, 239, 239, 239))
+                          //     //     : MaterialStateProperty.all<Color>(
+                          //     //         Color.fromRGBO(9, 85, 193, 1)),
+                          //     shape: MaterialStateProperty.all<
+                          //         RoundedRectangleBorder>(
+                          //       RoundedRectangleBorder(
+                          //         borderRadius: BorderRadius.circular(10.0),
+                          //         //       side: BorderSide(  color: Color.fromRGBO(156, 155, 174, 1))
+                          //       ),
+                          //     ),
+                          //   ),
+
+                          //   //   style: ButtonStyle(
+                          //   // backgroundColor:MaterialStateProperty.all<Color>(
+                          //   //        Color.fromRGBO(52, 191, 163, 1
+                          //   //      )),
+                          //   //     shape: MaterialStateProperty.all<
+                          //   //         RoundedRectangleBorder>(
+                          //   //       RoundedRectangleBorder(
+                          //   //         borderRadius: BorderRadius.circular(10.0),
+
+                          //   //         //   side: BorderSide(color: Colors.red.shade900),
+                          //   //       ),
+                          //   //     ),
+                          //   //   ),
+
+                          //   onPressed: () {
+                          //     setState(() {
+                          //       home_controller.selectstatus.value =
+                          //           '0'.toString();
+                          //       home_controller.start.value = 0;
+                          //       home_controller.fetchorder(
+                          //           home_controller.selectfirstdate.value,
+                          //           home_controller.selectenddate.value);
+                          //       print('sss$onclick');
+                          //       onclick = true; //  Get.to(Orderdetails());
+                          //     });
+                          //   },
+                          // ),
+                        ]),
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(width: 5),
-                Expanded(
-                  child: Container(
-                    height: 40,
-                    child: TextButton(
-                      child: AutoSizeText(
-                        'PICKED',
-                        style: TextStyle(
-                            // fontWeight: FontWeight.bold,
-                            fontSize: 11.0,
-                            color: onclick == true
-                                ? Color.fromRGBO(156, 155, 174, 1)
-                                : Colors.white),
-                      ),
-
-                      style: ButtonStyle(
-                        backgroundColor: onclick == true
-                            ? MaterialStateProperty.all<Color>(
-                                Color.fromARGB(95, 239, 239, 239))
-                            : MaterialStateProperty.all<Color>(
-                                Color.fromRGBO(52, 191, 163, 1),
-                              ),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                              side: BorderSide(
-                                  color: Color.fromRGBO(156, 155, 174, 1))),
-                        ),
-                      ),
-
-                      //      color: Colors.black,
-                      //  textColor: Colors.white,
-                      //     shape: RoundedRectangleBorder(
-                      //borderRadius: BorderRadius.circular(30)),
-                      onPressed: () {
-                        //    home_controller.fetchorder();
+                  SizedBox(width: 5),
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
                         setState(() {
                           home_controller.selectstatus.value = '1'.toString();
                           home_controller.start.value = 0;
@@ -343,10 +350,74 @@ class _HomeState extends State<Home> {
                           onclick = false;
                         });
                       },
+                      child: Container(
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 15,
+                            ),
+                            AutoSizeText(
+                              'PICKED',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 11.0,
+                                  color: onclick == true
+                                      ? Color.fromRGBO(156, 155, 174, 1)
+                                      : Color.fromRGBO(52, 191, 163, 1)),
+                            ),
+
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10),
+                              child: Container(
+                                height: 1,
+                                color: onclick == true
+                                    ? Color.fromRGBO(255, 255, 255, 1)
+                                    : Color.fromRGBO(52, 191, 163, 1),
+                              ),
+                            ),
+                            // TextButton
+                            // (
+                            //   child: AutoSizeText(
+                            //     'PICKED',
+                            //     style: TextStyle(
+                            //         // fontWeight: FontWeight.bold,
+                            //         fontSize: 11.0,
+                            //         color: onclick == true
+                            //             ? Color.fromRGBO(156, 155, 174, 1)
+                            //             : Colors.white),
+                            //   ),
+
+                            //   style: ButtonStyle(
+
+                            //     shape: MaterialStateProperty.all<
+                            //         RoundedRectangleBorder>(
+                            //       RoundedRectangleBorder(
+                            //         borderRadius: BorderRadius.circular(10.0),
+
+                            //       ),
+                            //     ),
+                            //   ),
+
+                            //   onPressed: () {
+
+                            //     setState(() {
+                            //       home_controller.selectstatus.value =
+                            //           '1'.toString();
+                            //       home_controller.start.value = 0;
+                            //       home_controller.fetchorder(
+                            //           home_controller.selectfirstdate.value,
+                            //           home_controller.selectenddate.value);
+                            //       onclick = false;
+                            //     });
+                            //   },
+                            // ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Obx(

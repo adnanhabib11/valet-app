@@ -35,7 +35,7 @@ class _OrderdetailsState extends State<Orderdetails> {
             ? loadingPage.loader()
             : Column(
                 children: [
-                  SizedBox(height: 23),
+                  //  SizedBox(height: 23),
                   // Container(
                   //   color: Color.fromRGBO(255, 255, 255, 1),
                   //   child: Padding(
@@ -92,7 +92,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                       //     )
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 13, 0, 13),
+                      padding: const EdgeInsets.fromLTRB(0, 35, 0, 13),
                       child: Row(
                         children: <Widget>[
                           SizedBox(
