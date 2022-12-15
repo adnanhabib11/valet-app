@@ -233,13 +233,13 @@ class _HomeState extends State<Home> {
               ),
             ),
           ),
-          SizedBox(
-            height: 10,
-          ),
+          // SizedBox(
+          //   height: 10,
+          // ),
           Container(
             color: Color.fromRGBO(255, 255, 255, 1),
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 3, 16, 3),
+              padding: const EdgeInsets.fromLTRB(16, 3, 16, 0),
               child: Row(
                 children: [
                   Expanded(
@@ -273,9 +273,9 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 10),
+                            padding: const EdgeInsets.only(top: 14),
                             child: Container(
-                                height: 1,
+                                height: 3,
                                 color: onclick == false
                                     ? Color.fromRGBO(255, 255, 255, 1)
                                     : Color.fromRGBO(9, 85, 193, 1)),
@@ -367,9 +367,9 @@ class _HomeState extends State<Home> {
                             ),
 
                             Padding(
-                              padding: const EdgeInsets.only(top: 10),
+                              padding: const EdgeInsets.only(top: 14),
                               child: Container(
-                                height: 1,
+                                height: 3,
                                 color: onclick == true
                                     ? Color.fromRGBO(255, 255, 255, 1)
                                     : Color.fromRGBO(52, 191, 163, 1),

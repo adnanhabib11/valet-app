@@ -10,7 +10,7 @@ class InputVaildation extends GetxController {
 
     Get.snackbar(
       "$title",
-      "This field is required",
+      "$title field is required",
       snackPosition: SnackPosition.BOTTOM,
       backgroundColor: Color.fromARGB(255, 236, 69, 57),
     );
