@@ -29,6 +29,7 @@ class OrderController extends GetxController {
 
   RxInt start = 0.obs;
   RxInt limit = 10.obs;
+  int lenghtoforders = 10;
   @override
   void onInit() {
     var today = DateTime.now();
@@ -49,7 +50,15 @@ class OrderController extends GetxController {
     controller.addListener(() {
       if (controller.position.maxScrollExtent == controller.position.pixels) {
         start.value = orderlisting[0].order!.length;
-        callnew(selectfirstdate.value, selectenddate.value);
+        print('lenght of orders $lenghtoforders');
+        print('lenght of limit ${limit.value}');
+        if (lenghtoforders < limit.value) {
+          print('ddd');
+        } else {
+          print('cccc');
+          callnew(selectfirstdate.value, selectenddate.value);
+        }
+        //   callnew(selectfirstdate.value, selectenddate.value);
       }
     });
   }
@@ -87,7 +96,7 @@ class OrderController extends GetxController {
       if (response.statusCode == 200) {
         orderlisting.clear();
         Orderlist _albumModel = Orderlist.fromJson(jsonDecode(response.body));
-
+      lenghtoforders = _albumModel.order!.length;
         orderlisting.add(Orderlist(
           status: _albumModel.status,
           order: _albumModel.order,
@@ -106,8 +115,8 @@ class OrderController extends GetxController {
         update();
       } else if (response.statusCode == 400) {
         print('logout');
-         auth_controller.logOut();
-                        Get.to(Login());
+        auth_controller.logOut();
+        Get.to(Login());
       } else {
         throw Exception('Failed to load ');
       }
@@ -142,7 +151,7 @@ class OrderController extends GetxController {
 
       if (response.statusCode == 200) {
         Orderlist _albumModel = Orderlist.fromJson(jsonDecode(response.body));
-
+        lenghtoforders = _albumModel.order!.length;
         for (var i = 0; i < _albumModel.order!.length; i++) {
           orderlisting[0].order!.add(Order(
               id: _albumModel.order![i].id,
@@ -170,13 +179,11 @@ class OrderController extends GetxController {
         loaddata.value = 'false';
         // selectstatus.value = '';
         update();
-      } 
-       else if (response.statusCode == 400) {
+      } else if (response.statusCode == 400) {
         print('logout');
-         auth_controller.logOut();
-                        Get.to(Login());
-      }
-      else {
+        auth_controller.logOut();
+        Get.to(Login());
+      } else {
         throw Exception('Failed to load ');
       }
     } catch (e) {
