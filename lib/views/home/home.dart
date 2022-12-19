@@ -1089,7 +1089,7 @@ class _HomeState extends State<Home> {
                       //borderRadius: BorderRadius.circular(30)),
                       onPressed: () {
                         auth_controller.logOut();
-                        Get.to(Login());
+                          Get.offAll(Login());
                       },
                     ),
                   ),
