@@ -32,7 +32,17 @@ class _OrderdetailsState extends State<Orderdetails> {
     return Scaffold(
       body: Obx(
         () => orderdetail_controller.isLoading.value
-            ? loadingPage.loader()
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    // mainAxisAlignment: MainAxisAlignment.center,
+
+                    children: [loadingPage.loader()],
+                  ),
+                ],
+              )
             : Column(
                 children: [
                   //  SizedBox(height: 23),

@@ -429,17 +429,19 @@ class _HomeState extends State<Home> {
                     child: Column(
                       children: [
                         if (home_controller.orderlisting[0].order!.length == 0)
-                          Padding(
-                            padding: const EdgeInsets.only(top: 40),
-                            child: AutoSizeText(
-                              'No Record',
-                              style: TextStyle(
-                                //  fontWeight: FontWeight.w500,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 16.0,
-                                color: Color.fromRGBO(93, 93, 106, 1),
+                          Column(
+                            children: [
+                              SizedBox(height: 70),
+                              AutoSizeText(
+                                'No Record',
+                                style: TextStyle(
+                                  //  fontWeight: FontWeight.w500,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 16.0,
+                                  color: Color.fromRGBO(93, 93, 106, 1),
+                                ),
                               ),
-                            ),
+                            ],
                           ),
                         Expanded(
                           //TODO: Add Expanded here
@@ -1038,7 +1040,6 @@ class _HomeState extends State<Home> {
                       home_controller.fetchorder(
                           home_controller.selectfirstdate.value,
                           home_controller.selectenddate.value);
-                     
 
                       Get.back();
                       //  home_controller.search = searching.text.toString();
@@ -1089,7 +1090,7 @@ class _HomeState extends State<Home> {
                       //borderRadius: BorderRadius.circular(30)),
                       onPressed: () {
                         auth_controller.logOut();
-                          Get.offAll(Login());
+                        Get.offAll(Login());
                       },
                     ),
                   ),
@@ -1312,8 +1313,8 @@ class _HomeState extends State<Home> {
                               //     shape: RoundedRectangleBorder(
                               //borderRadius: BorderRadius.circular(30)),
                               onPressed: () {
-                               home_controller.  roomnunber.value = '';
-                                 searching.text = ''.toString();
+                                home_controller.roomnunber.value = '';
+                                searching.text = ''.toString();
                                 home_controller.search.value = '';
                                 home_controller.followerCount.value = 2;
                                 room.text = '';
