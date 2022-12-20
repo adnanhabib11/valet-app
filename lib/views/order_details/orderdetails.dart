@@ -658,7 +658,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                   ],
                                                 ),
                                                 SizedBox(
-                                                  height: 10,
+                                                  height: 23,
                                                 ),
                                                 Column(
                                                   mainAxisAlignment:
@@ -705,9 +705,6 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                       ),
                                                     ),
                                                   ],
-                                                ),
-                                                SizedBox(
-                                                  height: 10,
                                                 ),
                                               ],
                                             ),
