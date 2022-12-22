@@ -1,4 +1,4 @@
-package com.example.hotel_vallet
+package com.nexteksystems.linentech.hotelvalet
 
 import io.flutter.embedding.android.FlutterActivity
 
