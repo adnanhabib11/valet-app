@@ -466,131 +466,116 @@ class _HomeState extends State<Home> {
                                     endActionPane: ActionPane(
                                       motion: const DrawerMotion(),
                                       children: [
-                                        Expanded(
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                bottom: 10),
-                                            child: CustomSlidableAction(
-                                              onPressed: (_) {
-                                                var id = home_controller
-                                                    .orderlisting[0]
-                                                    .order![index]
-                                                    .id
-                                                    .toString();
-                                                print('ddd$id');
-                                                Get.to(
-                                                  Orderdetails(),
-                                                  arguments: id,
-                                                );
-                                              },
-                                              backgroundColor: Color.fromRGBO(
-                                                  116, 17, 178, 1),
+                                        CustomSlidableAction(
+                                          onPressed: (_) {
+                                            var id = home_controller
+                                                .orderlisting[0]
+                                                .order![index]
+                                                .id
+                                                .toString();
+                                            print('ddd$id');
+                                            Get.to(
+                                              Orderdetails(),
+                                              arguments: id,
+                                            );
+                                          },
+                                          backgroundColor:
+                                              Color.fromRGBO(116, 17, 178, 1),
 
-                                              // padding: EdgeInsets.symmetric(
-                                              //   horizontal: 24.w,
-                                              //   vertical: 11.h,
-                                              // ),
+                                          // padding: EdgeInsets.symmetric(
+                                          //   horizontal: 24.w,
+                                          //   vertical: 11.h,
+                                          // ),
 
-                                              child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
-                                                  new SvgPicture.asset(
-                                                    'imagessvg/akar-icons_eye-open.svg',
-                                                    color: Colors.white,
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              new SvgPicture.asset(
+                                                'imagessvg/akar-icons_eye-open.svg',
+                                                color: Colors.white,
 
-                                                    height: 15.0,
-                                                    width: 15.0,
-                                                    //  allowDrawingOutsideViewBox: true,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 10,
-                                                  ),
-                                                  AutoSizeText(
-                                                    'view',
-                                                    style: TextStyle(
-                                                        fontSize: 14.0,
-                                                        color: Colors.white),
-                                                  ),
-                                                ],
+                                                height: 15.0,
+                                                width: 15.0,
+                                                //  allowDrawingOutsideViewBox: true,
                                               ),
-                                            ),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              AutoSizeText(
+                                                'view',
+                                                style: TextStyle(
+                                                    fontSize: 14.0,
+                                                    color: Colors.white),
+                                              ),
+                                            ],
                                           ),
                                         ),
-                                        Expanded(
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                bottom: 10),
-                                            child: CustomSlidableAction(
-                                              onPressed: (_) {
-                                                var id = home_controller
-                                                    .orderlisting[0]
-                                                    .order![index]
-                                                    .id
-                                                    .toString();
-                                                String a = home_controller
-                                                    .orderlisting[0]
-                                                    .order![index]
-                                                    .status
-                                                    .toString();
-                                                print('aaaaa$a');
-                                                int st = int.parse(a);
-                                                st == 1
-                                                    ? ""
-                                                    : changestatus(
-                                                        id, index, a);
-                                              },
-                                              backgroundColor: home_controller
-                                                          .orderlisting[0]
-                                                          .order![index]
-                                                          .status ==
-                                                      0
-                                                  ? Color.fromRGBO(
-                                                      9, 85, 193, 1)
-                                                  : Color.fromRGBO(
-                                                      52, 191, 163, 1),
-                                              // padding: EdgeInsets.symmetric(
-                                              //   horizontal: 24.w,
-                                              //   vertical: 11.h,
-                                              // ),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  if (home_controller
-                                                          .orderlisting[0]
-                                                          .order![index]
-                                                          .status ==
-                                                      0)
-                                                    SvgPicture.asset(
-                                                      'imagessvg/tabler_switch-2.svg',
-                                                      height: 15.0,
-                                                      width: 15.0,
-                                                      //  allowDrawingOutsideViewBox: true,
-                                                    ),
-                                                  SizedBox(
-                                                    height: 3,
-                                                  ),
-                                                  AutoSizeText(
-                                                    home_controller
-                                                                .orderlisting[0]
-                                                                .order![index]
-                                                                .status ==
-                                                            0
-                                                        ? 'OPEN'
-                                                        : 'PICKED',
-                                                    style: TextStyle(
-                                                        fontSize: 8.0,
-                                                        color: Color.fromRGBO(
-                                                            255, 255, 255, 1)),
-                                                  ),
-                                                ],
+                                        CustomSlidableAction(
+                                          onPressed: (_) {
+                                            var id = home_controller
+                                                .orderlisting[0]
+                                                .order![index]
+                                                .id
+                                                .toString();
+                                            String a = home_controller
+                                                .orderlisting[0]
+                                                .order![index]
+                                                .status
+                                                .toString();
+                                            print('aaaaa$a');
+                                            int st = int.parse(a);
+                                            st == 1
+                                                ? ""
+                                                : changestatus(id, index, a);
+                                          },
+                                          backgroundColor: home_controller
+                                                      .orderlisting[0]
+                                                      .order![index]
+                                                      .status ==
+                                                  0
+                                              ? Color.fromRGBO(9, 85, 193, 1)
+                                              : Color.fromRGBO(52, 191, 163, 1),
+                                          // padding: EdgeInsets.symmetric(
+                                          //   horizontal: 24.w,
+                                          //   vertical: 11.h,
+                                          // ),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              if (home_controller
+                                                      .orderlisting[0]
+                                                      .order![index]
+                                                      .status ==
+                                                  0)
+                                                SvgPicture.asset(
+                                                  'imagessvg/tabler_switch-2.svg',
+                                                  height: 15.0,
+                                                  width: 15.0,
+                                                  //  allowDrawingOutsideViewBox: true,
+                                                ),
+                                              SizedBox(
+                                                height: 3,
                                               ),
-                                            ),
+                                              AutoSizeText(
+                                                home_controller
+                                                            .orderlisting[0]
+                                                            .order![index]
+                                                            .status ==
+                                                        0
+                                                    ? 'OPEN'
+                                                    : 'PICKED',
+                                                style: TextStyle(
+                                                    fontSize: 8.0,
+                                                    color: Color.fromRGBO(
+                                                        255, 255, 255, 1)),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                         // SlidableAction(
