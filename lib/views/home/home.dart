@@ -460,10 +460,12 @@ class _HomeState extends State<Home> {
                                 home_controller.orderlisting[0].order!.length,
                             itemBuilder: (context, index) {
                               return Padding(
-                                padding: const EdgeInsets.all(0.0),
+                                padding:
+                                    const EdgeInsets.fromLTRB(16, 0, 0, 10),
                                 child: Slidable(
                                     key: const ValueKey(0),
                                     endActionPane: ActionPane(
+                                      extentRatio: 0.40,
                                       motion: const DrawerMotion(),
                                       children: [
                                         CustomSlidableAction(
@@ -606,258 +608,393 @@ class _HomeState extends State<Home> {
                                         // )
                                       ],
                                     ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          16, 0, 0, 10),
-                                      child: Container(
-                                        color: Color.fromRGBO(255, 255, 255, 1),
-                                        child: Padding(
-                                            padding: EdgeInsets.fromLTRB(
-                                                16, 0, 16, 0),
-                                            child: Column(
-                                              children: [
-                                                SizedBox(
-                                                  height: 10,
-                                                ),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Column(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .start,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            AutoSizeText(
-                                                              'Order Ref#',
-                                                              style: TextStyle(
-                                                                //  fontWeight: FontWeight.w500,
-                                                                fontSize: 10.0,
-                                                                color: Color
-                                                                    .fromRGBO(
-                                                                        93,
-                                                                        93,
-                                                                        106,
-                                                                        1),
-                                                              ),
+                                    child: Container(
+                                      color: Color.fromRGBO(255, 255, 255, 1),
+                                      child: Padding(
+                                          padding:
+                                              EdgeInsets.fromLTRB(16, 0, 16, 0),
+                                          child: Column(
+                                            children: [
+                                              SizedBox(
+                                                height: 10,
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          AutoSizeText(
+                                                            'Order Ref#',
+                                                            style: TextStyle(
+                                                              //  fontWeight: FontWeight.w500,
+                                                              fontSize: 10.0,
+                                                              color: Color
+                                                                  .fromRGBO(
+                                                                      93,
+                                                                      93,
+                                                                      106,
+                                                                      1),
                                                             ),
-                                                            SizedBox(
-                                                              height: 5,
+                                                          ),
+                                                          SizedBox(
+                                                            height: 5,
+                                                          ),
+                                                          AutoSizeText(
+                                                            home_controller
+                                                                        .orderlisting[
+                                                                            0]
+                                                                        .order![
+                                                                            index]
+                                                                        .referenceNumber
+                                                                        .toString() !=
+                                                                    null
+                                                                ? home_controller
+                                                                    .orderlisting[
+                                                                        0]
+                                                                    .order![
+                                                                        index]
+                                                                    .referenceNumber
+                                                                    .toString()
+                                                                : '',
+                                                            style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700,
+                                                              fontSize: 10.0,
+                                                              color: Color
+                                                                  .fromRGBO(
+                                                                      93,
+                                                                      93,
+                                                                      106,
+                                                                      1),
                                                             ),
-                                                            AutoSizeText(
-                                                              home_controller
-                                                                          .orderlisting[
-                                                                              0]
-                                                                          .order![
-                                                                              index]
-                                                                          .referenceNumber
-                                                                          .toString() !=
-                                                                      null
-                                                                  ? home_controller
-                                                                      .orderlisting[
-                                                                          0]
-                                                                      .order![
-                                                                          index]
-                                                                      .referenceNumber
-                                                                      .toString()
-                                                                  : '',
-                                                              style: TextStyle(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w700,
-                                                                fontSize: 10.0,
-                                                                color: Color
-                                                                    .fromRGBO(
-                                                                        93,
-                                                                        93,
-                                                                        106,
-                                                                        1),
-                                                              ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      SizedBox(
+                                                        height: 10,
+                                                      ),
+                                                      Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          AutoSizeText(
+                                                            'Phone#',
+                                                            style: TextStyle(
+                                                              //  fontWeight: FontWeight.w500,
+                                                              fontSize: 10.0,
+                                                              color: Color
+                                                                  .fromRGBO(
+                                                                      93,
+                                                                      93,
+                                                                      106,
+                                                                      1),
                                                             ),
-                                                          ],
-                                                        ),
-                                                        SizedBox(
-                                                          height: 10,
-                                                        ),
-                                                        Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .start,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            AutoSizeText(
-                                                              'Phone#',
-                                                              style: TextStyle(
-                                                                //  fontWeight: FontWeight.w500,
-                                                                fontSize: 10.0,
-                                                                color: Color
-                                                                    .fromRGBO(
-                                                                        93,
-                                                                        93,
-                                                                        106,
-                                                                        1),
-                                                              ),
+                                                          ),
+                                                          SizedBox(
+                                                            height: 5,
+                                                          ),
+                                                          AutoSizeText(
+                                                            home_controller
+                                                                        .orderlisting[
+                                                                            0]
+                                                                        .order![
+                                                                            index]
+                                                                        .phone
+                                                                        .toString() !=
+                                                                    null
+                                                                ? home_controller
+                                                                    .orderlisting[
+                                                                        0]
+                                                                    .order![
+                                                                        index]
+                                                                    .phone
+                                                                    .toString()
+                                                                : '',
+                                                            style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700,
+                                                              fontSize: 10.0,
+                                                              color: Color
+                                                                  .fromRGBO(
+                                                                      93,
+                                                                      93,
+                                                                      106,
+                                                                      1),
                                                             ),
-                                                            SizedBox(
-                                                              height: 5,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          AutoSizeText(
+                                                            'Room#',
+                                                            style: TextStyle(
+                                                              //  fontWeight: FontWeight.w500,
+                                                              fontSize: 10.0,
+                                                              color: Color
+                                                                  .fromRGBO(
+                                                                      93,
+                                                                      93,
+                                                                      106,
+                                                                      1),
                                                             ),
-                                                            AutoSizeText(
-                                                              home_controller
-                                                                          .orderlisting[
-                                                                              0]
-                                                                          .order![
-                                                                              index]
-                                                                          .phone
-                                                                          .toString() !=
-                                                                      null
-                                                                  ? home_controller
-                                                                      .orderlisting[
-                                                                          0]
-                                                                      .order![
-                                                                          index]
-                                                                      .phone
-                                                                      .toString()
-                                                                  : '',
-                                                              style: TextStyle(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w700,
-                                                                fontSize: 10.0,
-                                                                color: Color
-                                                                    .fromRGBO(
-                                                                        93,
-                                                                        93,
-                                                                        106,
-                                                                        1),
-                                                              ),
+                                                          ),
+                                                          SizedBox(
+                                                            height: 5,
+                                                          ),
+                                                          AutoSizeText(
+                                                            home_controller
+                                                                        .orderlisting[
+                                                                            0]
+                                                                        .order![
+                                                                            index]
+                                                                        .roomNumber
+                                                                        .toString() !=
+                                                                    null
+                                                                ? home_controller
+                                                                    .orderlisting[
+                                                                        0]
+                                                                    .order![
+                                                                        index]
+                                                                    .roomNumber
+                                                                    .toString()
+                                                                : '',
+                                                            style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700,
+                                                              fontSize: 10.0,
+                                                              color: Color
+                                                                  .fromRGBO(
+                                                                      93,
+                                                                      93,
+                                                                      106,
+                                                                      1),
                                                             ),
-                                                          ],
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .start,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            AutoSizeText(
-                                                              'Room#',
-                                                              style: TextStyle(
-                                                                //  fontWeight: FontWeight.w500,
-                                                                fontSize: 10.0,
-                                                                color: Color
-                                                                    .fromRGBO(
-                                                                        93,
-                                                                        93,
-                                                                        106,
-                                                                        1),
-                                                              ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      SizedBox(
+                                                        height: 10,
+                                                      ),
+                                                      Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          AutoSizeText(
+                                                            'Order Placed on',
+                                                            style: TextStyle(
+                                                              //  fontWeight: FontWeight.w500,
+                                                              fontSize: 10.0,
+                                                              color: Color
+                                                                  .fromRGBO(
+                                                                      93,
+                                                                      93,
+                                                                      106,
+                                                                      1),
                                                             ),
-                                                            SizedBox(
-                                                              height: 5,
-                                                            ),
-                                                            AutoSizeText(
-                                                              home_controller
-                                                                          .orderlisting[
-                                                                              0]
-                                                                          .order![
-                                                                              index]
-                                                                          .roomNumber
-                                                                          .toString() !=
-                                                                      null
-                                                                  ? home_controller
-                                                                      .orderlisting[
-                                                                          0]
-                                                                      .order![
-                                                                          index]
-                                                                      .roomNumber
-                                                                      .toString()
-                                                                  : '',
-                                                              style: TextStyle(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w700,
-                                                                fontSize: 10.0,
-                                                                color: Color
-                                                                    .fromRGBO(
-                                                                        93,
-                                                                        93,
-                                                                        106,
-                                                                        1),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        SizedBox(
-                                                          height: 10,
-                                                        ),
-                                                        Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .start,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            AutoSizeText(
-                                                              'Order Placed on',
-                                                              style: TextStyle(
-                                                                //  fontWeight: FontWeight.w500,
-                                                                fontSize: 10.0,
-                                                                color: Color
-                                                                    .fromRGBO(
-                                                                        93,
-                                                                        93,
-                                                                        106,
-                                                                        1),
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                              height: 5,
-                                                            ),
-                                                            if (home_controller
+                                                          ),
+                                                          SizedBox(
+                                                            height: 5,
+                                                          ),
+                                                          if (home_controller
+                                                                  .orderlisting[
+                                                                      0]
+                                                                  .order![index]
+                                                                  .orderDate
+                                                                  .toString() !=
+                                                              null)
+                                                            Container(
+                                                                child: changedateformate(home_controller
                                                                     .orderlisting[
                                                                         0]
                                                                     .order![
                                                                         index]
                                                                     .orderDate
-                                                                    .toString() !=
-                                                                null)
-                                                              Container(
-                                                                  child: changedateformate(home_controller
+                                                                    .toString())),
+                                                          AutoSizeText(
+                                                            dateis,
+                                                            style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700,
+                                                              fontSize: 10.0,
+                                                              color: Color
+                                                                  .fromRGBO(
+                                                                      93,
+                                                                      93,
+                                                                      106,
+                                                                      1),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment.end,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          SizedBox(
+                                                            height: 5,
+                                                          ),
+                                                          Row(
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .center,
+                                                            children: [
+                                                              InkWell(
+                                                                onTap: () {},
+                                                                child:
+                                                                    Container(
+                                                                        height:
+                                                                            20,
+                                                                        color: home_controller.orderlisting[0].order![index].status ==
+                                                                                0
+                                                                            ? Color.fromRGBO(
+                                                                                9,
+                                                                                85,
+                                                                                193,
+                                                                                1)
+                                                                            : Color.fromRGBO(
+                                                                                52,
+                                                                                191,
+                                                                                163,
+                                                                                1),
+                                                                        child:
+                                                                            Center(
+                                                                          child:
+                                                                              Row(
+                                                                            children: [
+                                                                              SizedBox(
+                                                                                width: 8,
+                                                                              ),
+                                                                              AutoSizeText(
+                                                                                home_controller.orderlisting[0].order![index].status == 0 ? 'OPEN' : 'PICKED',
+                                                                                style: TextStyle(fontSize: 8.0, color: Color.fromRGBO(255, 255, 255, 1)),
+                                                                              ),
+                                                                              SizedBox(
+                                                                                width: 8,
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        )),
+                                                              ),
+                                                              SizedBox(
+                                                                  width: 5),
+                                                            ],
+                                                          ),
+                                                          SizedBox(
+                                                            height: 5,
+                                                          )
+                                                        ],
+                                                      ),
+                                                      SizedBox(
+                                                        height: 13,
+                                                      ),
+                                                      Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          AutoSizeText(
+                                                            'Order Time',
+                                                            style: TextStyle(
+                                                              //  fontWeight: FontWeight.w500,
+                                                              fontSize: 10.0,
+                                                              color: Color
+                                                                  .fromRGBO(
+                                                                      93,
+                                                                      93,
+                                                                      106,
+                                                                      1),
+                                                            ),
+                                                          ),
+                                                          if (home_controller
+                                                                  .orderlisting[
+                                                                      0]
+                                                                  .order![index]
+                                                                  .orderDate
+                                                                  .toString() !=
+                                                              null)
+                                                            Container(
+                                                              child: changetimeformat(
+                                                                  home_controller
                                                                       .orderlisting[
                                                                           0]
                                                                       .order![
                                                                           index]
                                                                       .orderDate
-                                                                      .toString())),
+                                                                      .toString()),
+                                                            ),
+                                                          SizedBox(
+                                                            height: 5,
+                                                          ),
+                                                          if (home_controller
+                                                                  .orderlisting[
+                                                                      0]
+                                                                  .order![index]
+                                                                  .orderDate
+                                                                  .toString() !=
+                                                              null)
                                                             AutoSizeText(
-                                                              dateis,
+                                                              timeis,
                                                               style: TextStyle(
                                                                 fontWeight:
                                                                     FontWeight
@@ -871,154 +1008,17 @@ class _HomeState extends State<Home> {
                                                                         1),
                                                               ),
                                                             ),
-                                                          ],
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .end,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .start,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            SizedBox(
-                                                              height: 5,
-                                                            ),
-                                                            Row(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .center,
-                                                              children: [
-                                                                InkWell(
-                                                                  onTap: () {},
-                                                                  child:
-                                                                      Container(
-                                                                          height:
-                                                                              20,
-                                                                          color: home_controller.orderlisting[0].order![index].status == 0
-                                                                              ? Color.fromRGBO(9, 85, 193,
-                                                                                  1)
-                                                                              : Color.fromRGBO(52, 191, 163,
-                                                                                  1),
-                                                                          child:
-                                                                              Center(
-                                                                            child:
-                                                                                Row(
-                                                                              children: [
-                                                                                SizedBox(
-                                                                                  width: 8,
-                                                                                ),
-                                                                                AutoSizeText(
-                                                                                  home_controller.orderlisting[0].order![index].status == 0 ? 'OPEN' : 'PICKED',
-                                                                                  style: TextStyle(fontSize: 8.0, color: Color.fromRGBO(255, 255, 255, 1)),
-                                                                                ),
-                                                                                SizedBox(
-                                                                                  width: 8,
-                                                                                ),
-                                                                              ],
-                                                                            ),
-                                                                          )),
-                                                                ),
-                                                                SizedBox(
-                                                                    width: 5),
-                                                              ],
-                                                            ),
-                                                            SizedBox(
-                                                              height: 5,
-                                                            )
-                                                          ],
-                                                        ),
-                                                        SizedBox(
-                                                          height: 13,
-                                                        ),
-                                                        Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .start,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            AutoSizeText(
-                                                              'Order Time',
-                                                              style: TextStyle(
-                                                                //  fontWeight: FontWeight.w500,
-                                                                fontSize: 10.0,
-                                                                color: Color
-                                                                    .fromRGBO(
-                                                                        93,
-                                                                        93,
-                                                                        106,
-                                                                        1),
-                                                              ),
-                                                            ),
-                                                            if (home_controller
-                                                                    .orderlisting[
-                                                                        0]
-                                                                    .order![
-                                                                        index]
-                                                                    .orderDate
-                                                                    .toString() !=
-                                                                null)
-                                                              Container(
-                                                                child: changetimeformat(home_controller
-                                                                    .orderlisting[
-                                                                        0]
-                                                                    .order![
-                                                                        index]
-                                                                    .orderDate
-                                                                    .toString()),
-                                                              ),
-                                                            SizedBox(
-                                                              height: 5,
-                                                            ),
-                                                            if (home_controller
-                                                                    .orderlisting[
-                                                                        0]
-                                                                    .order![
-                                                                        index]
-                                                                    .orderDate
-                                                                    .toString() !=
-                                                                null)
-                                                              AutoSizeText(
-                                                                timeis,
-                                                                style:
-                                                                    TextStyle(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w700,
-                                                                  fontSize:
-                                                                      10.0,
-                                                                  color: Color
-                                                                      .fromRGBO(
-                                                                          93,
-                                                                          93,
-                                                                          106,
-                                                                          1),
-                                                                ),
-                                                              ),
-                                                          ],
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(
-                                                  height: 10,
-                                                ),
-                                              ],
-                                            )),
-                                      ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                height: 10,
+                                              ),
+                                            ],
+                                          )),
                                     )),
                               );
                             },
