@@ -1116,7 +1116,7 @@ class _HomeState extends State<Home> {
                 padding: Platform.isIOS
                     ? EdgeInsets.only(
                         right: 20,
-                        top: 50,
+                        top: 30,
                       )
                     : EdgeInsets.only(
                         right: 20,
