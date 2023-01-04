@@ -1049,7 +1049,7 @@ class _HomeState extends State<Home> {
     return Dialog(
       alignment: Alignment.topRight,
       insetPadding: Platform.isIOS
-          ? EdgeInsets.only(right: 50, top: 110, left: 14)
+          ? EdgeInsets.only(right: 50, top: 90, left: 14)
           : EdgeInsets.only(right: 50, top: 115, left: 14),
       child: Container(
           height: 35,
