@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:avatar_view/avatar_view.dart';
 import 'package:flutter/material.dart';
@@ -1046,7 +1048,9 @@ class _HomeState extends State<Home> {
   SearchDialog() {
     return Dialog(
       alignment: Alignment.topRight,
-      insetPadding: EdgeInsets.only(right: 50, top: 115, left: 14),
+      insetPadding: Platform.isIOS
+          ? EdgeInsets.only(right: 50, top: 110, left: 14)
+          : EdgeInsets.only(right: 50, top: 115, left: 14),
       child: Container(
           height: 35,
           child: Row(
