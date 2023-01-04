@@ -1113,14 +1113,24 @@ class _HomeState extends State<Home> {
             Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
               // Aligns the container to center
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 60, 16, 0),
+                padding: Platform.isIOS
+                    ? EdgeInsets.only(
+                        right: 20,
+                        top: 50,
+                      )
+                    : EdgeInsets.only(
+                        right: 20,
+                        top: 70,
+                      ),
+                //padding: const EdgeInsets.fromLTRB(0, 60, 16, 0),
                 child: Container(
+                  width: 80,
                   // A simplified version of dialog.
 
                   child: Card(
                     child: TextButton(
                       child: AutoSizeText(
-                        ' Logout ',
+                        'Logout',
                         style: TextStyle(
                           //  fontWeight: FontWeight.w500,
                           fontSize: 10.0,
