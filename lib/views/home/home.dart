@@ -1106,7 +1106,7 @@ class _HomeState extends State<Home> {
             Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
               // Aligns the container to center
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 65, 20, 0),
+                padding: const EdgeInsets.fromLTRB(0, 60, 16, 0),
                 child: Container(
                   // A simplified version of dialog.
 
