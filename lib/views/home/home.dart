@@ -80,153 +80,91 @@ class _HomeState extends State<Home> {
     String customer = auth_controller.getcustomerlogo().toString();
     LoadingPage loadingPage = LoadingPage();
 
-    return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(height: 25),
-          Container(
-            color: Color.fromRGBO(255, 255, 255, 1),
-            child: Padding(
-              padding: const EdgeInsets.all(14.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Image.network(
-                      request.awsPath +
-                          'profile/' +
-                          auth_controller.getLaundrylogo().toString(),
-                      height: 45, errorBuilder: (BuildContext context,
-                          Object exception, StackTrace? stackTrace) {
-                    return const Icon(
-                      Icons.image,
-                      color: Colors.grey,
-                      size: 40,
-                    );
-                  }),
-                  // Image.asset(
-                  //   'images/letter-s-inside-the-splash-with-sparkling-stars-5031ld 1.png',
-                  // ),
-                  Row(
-                    children: [
-                      AvatarView(
-                        radius: 26,
-                        // borderColor: Colors.grey,
-                        avatarType: AvatarType.CIRCLE,
-                        //   backgroundColor: Colors.red,
-                        imagePath: request.awsPath +
-                            'customers/' +
-                            auth_controller.getcustomerlogo().toString(),
-                        placeHolder: Container(),
-                        errorWidget: Container(
-                          child: Icon(
-                            Icons.image,
-                            color: Colors.grey,
-                            size: 40,
+    return SafeArea(
+      top: false,
+      child: Scaffold(
+        body: Column(
+          children: [
+            SizedBox(height: 25),
+            Container(
+              color: Color.fromRGBO(255, 255, 255, 1),
+              child: Padding(
+                padding: const EdgeInsets.all(14.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Image.network(
+                        request.awsPath +
+                            'profile/' +
+                            auth_controller.getLaundrylogo().toString(),
+                        height: 45, errorBuilder: (BuildContext context,
+                            Object exception, StackTrace? stackTrace) {
+                      return const Icon(
+                        Icons.image,
+                        color: Colors.grey,
+                        size: 40,
+                      );
+                    }),
+                    // Image.asset(
+                    //   'images/letter-s-inside-the-splash-with-sparkling-stars-5031ld 1.png',
+                    // ),
+                    Row(
+                      children: [
+                        AvatarView(
+                          radius: 26,
+                          // borderColor: Colors.grey,
+                          avatarType: AvatarType.CIRCLE,
+                          //   backgroundColor: Colors.red,
+                          imagePath: request.awsPath +
+                              'customers/' +
+                              auth_controller.getcustomerlogo().toString(),
+                          placeHolder: Container(),
+                          errorWidget: Container(
+                            child: Icon(
+                              Icons.image,
+                              color: Colors.grey,
+                              size: 40,
+                            ),
                           ),
                         ),
-                      ),
 
-                      // Container(
-                      //     child: AvatarView(
-                      //   radius: 33,
-                      //   //borderWidth: 8,
-                      //   // borderColor: Colors.yellow,
-                      //   avatarType: AvatarType.CIRCLE,
-                      //   //   backgroundColor: Colors.red,
-                      //   imagePath: request.awsPath +
-                      //       'customers/' +
-                      //       auth_controller.getcustomerlogo().toString(),
-                      //   placeHolder: Image.network(
-                      //     request.awsPath +
-                      //         'customers/' +
-                      //         auth_controller.getcustomerlogo().toString(),
-                      //     width: 50,
-                      //     height: 50,
-                      //     //fit: BoxFit.cover,
-                      //   ),
-                      // )),
-                      // Image.network(
-                      //     request.awsPath +
-                      //         'customers/' +
-                      //         auth_controller.getcustomerlogo().toString(),
-                      //     height: 36, errorBuilder: (BuildContext context,
-                      //         Object exception, StackTrace? stackTrace) {
-                      //   return const Text('');
-                      // }),
+                        // Container(
+                        //     child: AvatarView(
+                        //   radius: 33,
+                        //   //borderWidth: 8,
+                        //   // borderColor: Colors.yellow,
+                        //   avatarType: AvatarType.CIRCLE,
+                        //   //   backgroundColor: Colors.red,
+                        //   imagePath: request.awsPath +
+                        //       'customers/' +
+                        //       auth_controller.getcustomerlogo().toString(),
+                        //   placeHolder: Image.network(
+                        //     request.awsPath +
+                        //         'customers/' +
+                        //         auth_controller.getcustomerlogo().toString(),
+                        //     width: 50,
+                        //     height: 50,
+                        //     //fit: BoxFit.cover,
+                        //   ),
+                        // )),
+                        // Image.network(
+                        //     request.awsPath +
+                        //         'customers/' +
+                        //         auth_controller.getcustomerlogo().toString(),
+                        //     height: 36, errorBuilder: (BuildContext context,
+                        //         Object exception, StackTrace? stackTrace) {
+                        //   return const Text('');
+                        // }),
 
-                      SizedBox(
-                        width: 10,
-                      ),
-                      InkWell(
-                        onTap: (() {
-                          LogoutDialog();
-                        }),
-                        child: SvgPicture.asset(
-                          'imagessvg/downword.svg',
-                          //   height: 20.0,
-                          // width: 20.0,
-                          //  allowDrawingOutsideViewBox: true,
+                        SizedBox(
+                          width: 10,
                         ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              color: Color.fromRGBO(9, 85, 193, 1),
-              // border: Border.all(
-              //   color: Colors.black,
-              //   width: 1,
-              // )
-            ),
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(20, 5, 5, 5),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  AutoSizeText(
-                    'Valet Orders',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16.0,
-                      color: Color.fromRGBO(255, 255, 255, 1),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(0, 10, 14, 0),
-                    child: Row(
-                      //   mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
                         InkWell(
                           onTap: (() {
-                            showDialog(
-                              context: context,
-                              barrierDismissible: true,
-                              builder: (BuildContext context) {
-                                return SearchDialog();
-                              },
-                            );
+                            LogoutDialog();
                           }),
-                          child: new SvgPicture.asset(
-                            'imagessvg/eva_arrow-ios-downward-outline (1).svg',
-                            //   height: 20.0,
-                            // width: 20.0,
-                            //  allowDrawingOutsideViewBox: true,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            datefilter();
-                          },
-                          child: new SvgPicture.asset(
-                            'imagessvg/eva_arrow-ios-downward-outline.svg',
+                          child: SvgPicture.asset(
+                            'imagessvg/downword.svg',
                             //   height: 20.0,
                             // width: 20.0,
                             //  allowDrawingOutsideViewBox: true,
@@ -234,767 +172,510 @@ class _HomeState extends State<Home> {
                         ),
                       ],
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-          // SizedBox(
-          //   height: 10,
-          // ),
-          Container(
-            color: Color.fromRGBO(255, 255, 255, 1),
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 3, 16, 0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: InkWell(
-                      onTap: () {
-                        setState(() {
-                          home_controller.selectstatus.value = '0'.toString();
-                          home_controller.start.value = 0;
-                          home_controller.fetchorder(
-                              home_controller.selectfirstdate.value,
-                              home_controller.selectenddate.value);
-                          print('sss$onclick');
-                          onclick = true; //  Get.to(Orderdetails());
-                        });
-                      },
-                      child: Container(
-                        //   height: 40,
-                        child: Column(children: [
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Container(
-                            child: AutoSizeText(
-                              'OPEN',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 11.0,
-                                  color: onclick == false
-                                      ? Color.fromRGBO(156, 155, 174, 1)
-                                      : Color.fromRGBO(9, 85, 193, 1)),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 14),
-                            child: Container(
-                                height: 3,
-                                color: onclick == false
-                                    ? Color.fromRGBO(255, 255, 255, 1)
-                                    : Color.fromRGBO(9, 85, 193, 1)),
-                          ),
-                          // TextButton(
-                          //   child: AutoSizeText(
-                          //     'OPEN',
-                          //     style: TextStyle(
-                          //         // fontWeight: FontWeight.bold,
-                          //         fontSize: 11.0,
-                          //         color: onclick == false
-                          //             ? Color.fromRGBO(156, 155, 174, 1)
-                          //             : Colors.black),
-                          //   ),
-
-                          //   style: ButtonStyle(
-                          //     // backgroundColor: onclick == false
-                          //     //     ? MaterialStateProperty.all<Color>(
-                          //     //         Color.fromARGB(95, 239, 239, 239))
-                          //     //     : MaterialStateProperty.all<Color>(
-                          //     //         Color.fromRGBO(9, 85, 193, 1)),
-                          //     shape: MaterialStateProperty.all<
-                          //         RoundedRectangleBorder>(
-                          //       RoundedRectangleBorder(
-                          //         borderRadius: BorderRadius.circular(10.0),
-                          //         //       side: BorderSide(  color: Color.fromRGBO(156, 155, 174, 1))
-                          //       ),
-                          //     ),
-                          //   ),
-
-                          //   //   style: ButtonStyle(
-                          //   // backgroundColor:MaterialStateProperty.all<Color>(
-                          //   //        Color.fromRGBO(52, 191, 163, 1
-                          //   //      )),
-                          //   //     shape: MaterialStateProperty.all<
-                          //   //         RoundedRectangleBorder>(
-                          //   //       RoundedRectangleBorder(
-                          //   //         borderRadius: BorderRadius.circular(10.0),
-
-                          //   //         //   side: BorderSide(color: Colors.red.shade900),
-                          //   //       ),
-                          //   //     ),
-                          //   //   ),
-
-                          //   onPressed: () {
-                          //     setState(() {
-                          //       home_controller.selectstatus.value =
-                          //           '0'.toString();
-                          //       home_controller.start.value = 0;
-                          //       home_controller.fetchorder(
-                          //           home_controller.selectfirstdate.value,
-                          //           home_controller.selectenddate.value);
-                          //       print('sss$onclick');
-                          //       onclick = true; //  Get.to(Orderdetails());
-                          //     });
-                          //   },
-                          // ),
-                        ]),
+            Container(
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(9, 85, 193, 1),
+                // border: Border.all(
+                //   color: Colors.black,
+                //   width: 1,
+                // )
+              ),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(20, 5, 5, 5),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    AutoSizeText(
+                      'Valet Orders',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16.0,
+                        color: Color.fromRGBO(255, 255, 255, 1),
                       ),
                     ),
-                  ),
-                  SizedBox(width: 5),
-                  Expanded(
-                    child: InkWell(
-                      onTap: () {
-                        setState(() {
-                          home_controller.selectstatus.value = '1'.toString();
-                          home_controller.start.value = 0;
-                          home_controller.fetchorder(
-                              home_controller.selectfirstdate.value,
-                              home_controller.selectenddate.value);
-                          onclick = false;
-                        });
-                      },
-                      child: Container(
-                        child: Column(
-                          children: [
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 10, 14, 0),
+                      child: Row(
+                        //   mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          InkWell(
+                            onTap: (() {
+                              showDialog(
+                                context: context,
+                                barrierDismissible: true,
+                                builder: (BuildContext context) {
+                                  return SearchDialog();
+                                },
+                              );
+                            }),
+                            child: new SvgPicture.asset(
+                              'imagessvg/eva_arrow-ios-downward-outline (1).svg',
+                              //   height: 20.0,
+                              // width: 20.0,
+                              //  allowDrawingOutsideViewBox: true,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              datefilter();
+                            },
+                            child: new SvgPicture.asset(
+                              'imagessvg/eva_arrow-ios-downward-outline.svg',
+                              //   height: 20.0,
+                              // width: 20.0,
+                              //  allowDrawingOutsideViewBox: true,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            // SizedBox(
+            //   height: 10,
+            // ),
+            Container(
+              color: Color.fromRGBO(255, 255, 255, 1),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 3, 16, 0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: InkWell(
+                        onTap: () {
+                          setState(() {
+                            home_controller.selectstatus.value = '0'.toString();
+                            home_controller.start.value = 0;
+                            home_controller.fetchorder(
+                                home_controller.selectfirstdate.value,
+                                home_controller.selectenddate.value);
+                            print('sss$onclick');
+                            onclick = true; //  Get.to(Orderdetails());
+                          });
+                        },
+                        child: Container(
+                          //   height: 40,
+                          child: Column(children: [
                             SizedBox(
                               height: 15,
                             ),
-                            AutoSizeText(
-                              'PICKED',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 11.0,
-                                  color: onclick == true
-                                      ? Color.fromRGBO(156, 155, 174, 1)
-                                      : Color.fromRGBO(52, 191, 163, 1)),
+                            Container(
+                              child: AutoSizeText(
+                                'OPEN',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 11.0,
+                                    color: onclick == false
+                                        ? Color.fromRGBO(156, 155, 174, 1)
+                                        : Color.fromRGBO(9, 85, 193, 1)),
+                              ),
                             ),
-
                             Padding(
                               padding: const EdgeInsets.only(top: 14),
                               child: Container(
-                                height: 3,
-                                color: onclick == true
-                                    ? Color.fromRGBO(255, 255, 255, 1)
-                                    : Color.fromRGBO(52, 191, 163, 1),
-                              ),
+                                  height: 3,
+                                  color: onclick == false
+                                      ? Color.fromRGBO(255, 255, 255, 1)
+                                      : Color.fromRGBO(9, 85, 193, 1)),
                             ),
-                            // TextButton
-                            // (
+                            // TextButton(
                             //   child: AutoSizeText(
-                            //     'PICKED',
+                            //     'OPEN',
                             //     style: TextStyle(
                             //         // fontWeight: FontWeight.bold,
                             //         fontSize: 11.0,
-                            //         color: onclick == true
+                            //         color: onclick == false
                             //             ? Color.fromRGBO(156, 155, 174, 1)
-                            //             : Colors.white),
+                            //             : Colors.black),
                             //   ),
 
                             //   style: ButtonStyle(
-
+                            //     // backgroundColor: onclick == false
+                            //     //     ? MaterialStateProperty.all<Color>(
+                            //     //         Color.fromARGB(95, 239, 239, 239))
+                            //     //     : MaterialStateProperty.all<Color>(
+                            //     //         Color.fromRGBO(9, 85, 193, 1)),
                             //     shape: MaterialStateProperty.all<
                             //         RoundedRectangleBorder>(
                             //       RoundedRectangleBorder(
                             //         borderRadius: BorderRadius.circular(10.0),
-
+                            //         //       side: BorderSide(  color: Color.fromRGBO(156, 155, 174, 1))
                             //       ),
                             //     ),
                             //   ),
 
-                            //   onPressed: () {
+                            //   //   style: ButtonStyle(
+                            //   // backgroundColor:MaterialStateProperty.all<Color>(
+                            //   //        Color.fromRGBO(52, 191, 163, 1
+                            //   //      )),
+                            //   //     shape: MaterialStateProperty.all<
+                            //   //         RoundedRectangleBorder>(
+                            //   //       RoundedRectangleBorder(
+                            //   //         borderRadius: BorderRadius.circular(10.0),
 
+                            //   //         //   side: BorderSide(color: Colors.red.shade900),
+                            //   //       ),
+                            //   //     ),
+                            //   //   ),
+
+                            //   onPressed: () {
                             //     setState(() {
                             //       home_controller.selectstatus.value =
-                            //           '1'.toString();
+                            //           '0'.toString();
                             //       home_controller.start.value = 0;
                             //       home_controller.fetchorder(
                             //           home_controller.selectfirstdate.value,
                             //           home_controller.selectenddate.value);
-                            //       onclick = false;
+                            //       print('sss$onclick');
+                            //       onclick = true; //  Get.to(Orderdetails());
                             //     });
                             //   },
                             // ),
-                          ],
+                          ]),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Obx(
-            () => home_controller.isLoading.value
-                ? Column(
-                    children: [SizedBox(height: 70), loadingPage.loader()],
-                  )
-                : Expanded(
-                    child: Column(
-                      children: [
-                        if (home_controller.orderlisting[0].order!.length == 0)
-                          Column(
+                    SizedBox(width: 5),
+                    Expanded(
+                      child: InkWell(
+                        onTap: () {
+                          setState(() {
+                            home_controller.selectstatus.value = '1'.toString();
+                            home_controller.start.value = 0;
+                            home_controller.fetchorder(
+                                home_controller.selectfirstdate.value,
+                                home_controller.selectenddate.value);
+                            onclick = false;
+                          });
+                        },
+                        child: Container(
+                          child: Column(
                             children: [
-                              SizedBox(height: 70),
+                              SizedBox(
+                                height: 15,
+                              ),
                               AutoSizeText(
-                                'No Record',
+                                'PICKED',
                                 style: TextStyle(
-                                  //  fontWeight: FontWeight.w500,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 16.0,
-                                  color: Color.fromRGBO(93, 93, 106, 1),
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 11.0,
+                                    color: onclick == true
+                                        ? Color.fromRGBO(156, 155, 174, 1)
+                                        : Color.fromRGBO(52, 191, 163, 1)),
+                              ),
+
+                              Padding(
+                                padding: const EdgeInsets.only(top: 14),
+                                child: Container(
+                                  height: 3,
+                                  color: onclick == true
+                                      ? Color.fromRGBO(255, 255, 255, 1)
+                                      : Color.fromRGBO(52, 191, 163, 1),
                                 ),
                               ),
+                              // TextButton
+                              // (
+                              //   child: AutoSizeText(
+                              //     'PICKED',
+                              //     style: TextStyle(
+                              //         // fontWeight: FontWeight.bold,
+                              //         fontSize: 11.0,
+                              //         color: onclick == true
+                              //             ? Color.fromRGBO(156, 155, 174, 1)
+                              //             : Colors.white),
+                              //   ),
+
+                              //   style: ButtonStyle(
+
+                              //     shape: MaterialStateProperty.all<
+                              //         RoundedRectangleBorder>(
+                              //       RoundedRectangleBorder(
+                              //         borderRadius: BorderRadius.circular(10.0),
+
+                              //       ),
+                              //     ),
+                              //   ),
+
+                              //   onPressed: () {
+
+                              //     setState(() {
+                              //       home_controller.selectstatus.value =
+                              //           '1'.toString();
+                              //       home_controller.start.value = 0;
+                              //       home_controller.fetchorder(
+                              //           home_controller.selectfirstdate.value,
+                              //           home_controller.selectenddate.value);
+                              //       onclick = false;
+                              //     });
+                              //   },
+                              // ),
                             ],
                           ),
-                        Expanded(
-                          //TODO: Add Expanded here
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Obx(
+              () => home_controller.isLoading.value
+                  ? Column(
+                      children: [SizedBox(height: 70), loadingPage.loader()],
+                    )
+                  : Expanded(
+                      child: Column(
+                        children: [
+                          if (home_controller.orderlisting[0].order!.length ==
+                              0)
+                            Column(
+                              children: [
+                                SizedBox(height: 70),
+                                AutoSizeText(
+                                  'No Record',
+                                  style: TextStyle(
+                                    //  fontWeight: FontWeight.w500,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16.0,
+                                    color: Color.fromRGBO(93, 93, 106, 1),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          Expanded(
+                            //TODO: Add Expanded here
 
-                          child: ListView.builder(
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            controller: home_controller.controller,
-                            itemCount:
-                                home_controller.orderlisting[0].order!.length,
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(16, 0, 0, 10),
-                                child: Slidable(
-                                    key: const ValueKey(0),
-                                    endActionPane: ActionPane(
-                                      extentRatio: 0.40,
-                                      motion: const DrawerMotion(),
-                                      children: [
-                                        CustomSlidableAction(
-                                          onPressed: (_) {
-                                            var id = home_controller
-                                                .orderlisting[0]
-                                                .order![index]
-                                                .id
-                                                .toString();
-                                            print('ddd$id');
-                                            Get.to(
-                                              Orderdetails(),
-                                              arguments: id,
-                                            );
-                                          },
-                                          backgroundColor:
-                                              Color.fromRGBO(116, 17, 178, 1),
+                            child: ListView.builder(
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              controller: home_controller.controller,
+                              itemCount:
+                                  home_controller.orderlisting[0].order!.length,
+                              itemBuilder: (context, index) {
+                                return Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(16, 0, 0, 10),
+                                  child: Slidable(
+                                      key: const ValueKey(0),
+                                      endActionPane: ActionPane(
+                                        extentRatio: 0.40,
+                                        motion: const DrawerMotion(),
+                                        children: [
+                                          CustomSlidableAction(
+                                            onPressed: (_) {
+                                              var id = home_controller
+                                                  .orderlisting[0]
+                                                  .order![index]
+                                                  .id
+                                                  .toString();
+                                              print('ddd$id');
+                                              Get.to(
+                                                Orderdetails(),
+                                                arguments: id,
+                                              );
+                                            },
+                                            backgroundColor:
+                                                Color.fromRGBO(116, 17, 178, 1),
 
-                                          // padding: EdgeInsets.symmetric(
-                                          //   horizontal: 24.w,
-                                          //   vertical: 11.h,
-                                          // ),
+                                            // padding: EdgeInsets.symmetric(
+                                            //   horizontal: 24.w,
+                                            //   vertical: 11.h,
+                                            // ),
 
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              new SvgPicture.asset(
-                                                'imagessvg/akar-icons_eye-open.svg',
-                                                color: Colors.white,
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                new SvgPicture.asset(
+                                                  'imagessvg/akar-icons_eye-open.svg',
+                                                  color: Colors.white,
 
-                                                height: 15.0,
-                                                width: 15.0,
-                                                //  allowDrawingOutsideViewBox: true,
-                                              ),
-                                              SizedBox(
-                                                width: 10,
-                                              ),
-                                              AutoSizeText(
-                                                'view',
-                                                style: TextStyle(
-                                                    fontSize: 14.0,
-                                                    color: Colors.white),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        CustomSlidableAction(
-                                          onPressed: (_) {
-                                            var id = home_controller
-                                                .orderlisting[0]
-                                                .order![index]
-                                                .id
-                                                .toString();
-                                            String a = home_controller
-                                                .orderlisting[0]
-                                                .order![index]
-                                                .status
-                                                .toString();
-                                            print('aaaaa$a');
-                                            int st = int.parse(a);
-                                            st == 1
-                                                ? ""
-                                                : changestatus(id, index, a);
-                                          },
-                                          backgroundColor: home_controller
-                                                      .orderlisting[0]
-                                                      .order![index]
-                                                      .status ==
-                                                  0
-                                              ? Color.fromRGBO(9, 85, 193, 1)
-                                              : Color.fromRGBO(52, 191, 163, 1),
-                                          // padding: EdgeInsets.symmetric(
-                                          //   horizontal: 24.w,
-                                          //   vertical: 11.h,
-                                          // ),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              if (home_controller
-                                                      .orderlisting[0]
-                                                      .order![index]
-                                                      .status ==
-                                                  0)
-                                                SvgPicture.asset(
-                                                  'imagessvg/tabler_switch-2.svg',
                                                   height: 15.0,
                                                   width: 15.0,
                                                   //  allowDrawingOutsideViewBox: true,
                                                 ),
-                                              SizedBox(
-                                                height: 3,
-                                              ),
-                                              AutoSizeText(
-                                                home_controller
-                                                            .orderlisting[0]
-                                                            .order![index]
-                                                            .status ==
-                                                        0
-                                                    ? 'OPEN'
-                                                    : 'PICKED',
-                                                style: TextStyle(
-                                                    fontSize: 8.0,
-                                                    color: Color.fromRGBO(
-                                                        255, 255, 255, 1)),
-                                              ),
-                                            ],
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                AutoSizeText(
+                                                  'view',
+                                                  style: TextStyle(
+                                                      fontSize: 14.0,
+                                                      color: Colors.white),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        // SlidableAction(
-                                        //   autoClose: false,
-                                        //   flex: 1,
-                                        //   onPressed: (value) {
-                                        //     //    myList.removeAt(index);
-                                        //     setState(() {});
-                                        //   },
-                                        //   backgroundColor:
-                                        //       Color.fromRGBO(52, 191, 163, 1),
-                                        //   foregroundColor: Colors.white,
-                                        //   icon: Icons.edit,
-                                        //   label: 'view',
-                                        // ),
-                                        // SlidableAction(
-                                        //   autoClose: false,
-                                        //   flex: 1,
-                                        //   onPressed: (value) {
-                                        //     //   myList.removeAt(index);
-                                        //     setState(() {});
-                                        //   },
-                                        //   backgroundColor:
-                                        //       Color.fromRGBO(9, 85, 193, 1),
-                                        //   foregroundColor: Colors.white,
-                                        //   icon: Icons.edit,
-                                        //   label: 'Status',
-                                        // )
-                                      ],
-                                    ),
-                                    child: Container(
-                                      color: Color.fromRGBO(255, 255, 255, 1),
-                                      child: Padding(
-                                          padding:
-                                              EdgeInsets.fromLTRB(16, 0, 16, 0),
-                                          child: Column(
-                                            children: [
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Column(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          AutoSizeText(
-                                                            'Order Ref#',
-                                                            style: TextStyle(
-                                                              //  fontWeight: FontWeight.w500,
-                                                              fontSize: 10.0,
-                                                              color: Color
-                                                                  .fromRGBO(
-                                                                      93,
-                                                                      93,
-                                                                      106,
-                                                                      1),
-                                                            ),
-                                                          ),
-                                                          SizedBox(
-                                                            height: 5,
-                                                          ),
-                                                          AutoSizeText(
-                                                            home_controller
-                                                                        .orderlisting[
-                                                                            0]
-                                                                        .order![
-                                                                            index]
-                                                                        .referenceNumber
-                                                                        .toString() !=
-                                                                    null
-                                                                ? home_controller
-                                                                    .orderlisting[
-                                                                        0]
-                                                                    .order![
-                                                                        index]
-                                                                    .referenceNumber
-                                                                    .toString()
-                                                                : '',
-                                                            style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w700,
-                                                              fontSize: 10.0,
-                                                              color: Color
-                                                                  .fromRGBO(
-                                                                      93,
-                                                                      93,
-                                                                      106,
-                                                                      1),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      SizedBox(
-                                                        height: 10,
-                                                      ),
-                                                      Column(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          AutoSizeText(
-                                                            'Phone#',
-                                                            style: TextStyle(
-                                                              //  fontWeight: FontWeight.w500,
-                                                              fontSize: 10.0,
-                                                              color: Color
-                                                                  .fromRGBO(
-                                                                      93,
-                                                                      93,
-                                                                      106,
-                                                                      1),
-                                                            ),
-                                                          ),
-                                                          SizedBox(
-                                                            height: 5,
-                                                          ),
-                                                          AutoSizeText(
-                                                            home_controller
-                                                                        .orderlisting[
-                                                                            0]
-                                                                        .order![
-                                                                            index]
-                                                                        .phone
-                                                                        .toString() !=
-                                                                    null
-                                                                ? home_controller
-                                                                    .orderlisting[
-                                                                        0]
-                                                                    .order![
-                                                                        index]
-                                                                    .phone
-                                                                    .toString()
-                                                                : '',
-                                                            style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w700,
-                                                              fontSize: 10.0,
-                                                              color: Color
-                                                                  .fromRGBO(
-                                                                      93,
-                                                                      93,
-                                                                      106,
-                                                                      1),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
+                                          CustomSlidableAction(
+                                            onPressed: (_) {
+                                              var id = home_controller
+                                                  .orderlisting[0]
+                                                  .order![index]
+                                                  .id
+                                                  .toString();
+                                              String a = home_controller
+                                                  .orderlisting[0]
+                                                  .order![index]
+                                                  .status
+                                                  .toString();
+                                              print('aaaaa$a');
+                                              int st = int.parse(a);
+                                              st == 1
+                                                  ? ""
+                                                  : changestatus(id, index, a);
+                                            },
+                                            backgroundColor: home_controller
+                                                        .orderlisting[0]
+                                                        .order![index]
+                                                        .status ==
+                                                    0
+                                                ? Color.fromRGBO(9, 85, 193, 1)
+                                                : Color.fromRGBO(
+                                                    52, 191, 163, 1),
+                                            // padding: EdgeInsets.symmetric(
+                                            //   horizontal: 24.w,
+                                            //   vertical: 11.h,
+                                            // ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                if (home_controller
+                                                        .orderlisting[0]
+                                                        .order![index]
+                                                        .status ==
+                                                    0)
+                                                  SvgPicture.asset(
+                                                    'imagessvg/tabler_switch-2.svg',
+                                                    height: 15.0,
+                                                    width: 15.0,
+                                                    //  allowDrawingOutsideViewBox: true,
                                                   ),
-                                                  Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Column(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          AutoSizeText(
-                                                            'Room#',
-                                                            style: TextStyle(
-                                                              //  fontWeight: FontWeight.w500,
-                                                              fontSize: 10.0,
-                                                              color: Color
-                                                                  .fromRGBO(
-                                                                      93,
-                                                                      93,
-                                                                      106,
-                                                                      1),
-                                                            ),
-                                                          ),
-                                                          SizedBox(
-                                                            height: 5,
-                                                          ),
-                                                          AutoSizeText(
-                                                            home_controller
-                                                                        .orderlisting[
-                                                                            0]
-                                                                        .order![
-                                                                            index]
-                                                                        .roomNumber
-                                                                        .toString() !=
-                                                                    null
-                                                                ? home_controller
-                                                                    .orderlisting[
-                                                                        0]
-                                                                    .order![
-                                                                        index]
-                                                                    .roomNumber
-                                                                    .toString()
-                                                                : '',
-                                                            style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w700,
-                                                              fontSize: 10.0,
-                                                              color: Color
-                                                                  .fromRGBO(
-                                                                      93,
-                                                                      93,
-                                                                      106,
-                                                                      1),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      SizedBox(
-                                                        height: 10,
-                                                      ),
-                                                      Column(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          AutoSizeText(
-                                                            'Order Placed on',
-                                                            style: TextStyle(
-                                                              //  fontWeight: FontWeight.w500,
-                                                              fontSize: 10.0,
-                                                              color: Color
-                                                                  .fromRGBO(
-                                                                      93,
-                                                                      93,
-                                                                      106,
-                                                                      1),
-                                                            ),
-                                                          ),
-                                                          SizedBox(
-                                                            height: 5,
-                                                          ),
-                                                          if (home_controller
-                                                                  .orderlisting[
-                                                                      0]
-                                                                  .order![index]
-                                                                  .orderDate
-                                                                  .toString() !=
-                                                              null)
-                                                            Container(
-                                                                child: changedateformate(home_controller
-                                                                    .orderlisting[
-                                                                        0]
-                                                                    .order![
-                                                                        index]
-                                                                    .orderDate
-                                                                    .toString())),
-                                                          AutoSizeText(
-                                                            dateis,
-                                                            style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w700,
-                                                              fontSize: 10.0,
-                                                              color: Color
-                                                                  .fromRGBO(
-                                                                      93,
-                                                                      93,
-                                                                      106,
-                                                                      1),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment.end,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Column(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          SizedBox(
-                                                            height: 5,
-                                                          ),
-                                                          Row(
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              InkWell(
-                                                                onTap: () {},
-                                                                child:
-                                                                    Container(
-                                                                        height:
-                                                                            20,
-                                                                        color: home_controller.orderlisting[0].order![index].status ==
-                                                                                0
-                                                                            ? Color.fromRGBO(
-                                                                                9,
-                                                                                85,
-                                                                                193,
-                                                                                1)
-                                                                            : Color.fromRGBO(
-                                                                                52,
-                                                                                191,
-                                                                                163,
-                                                                                1),
-                                                                        child:
-                                                                            Center(
-                                                                          child:
-                                                                              Row(
-                                                                            children: [
-                                                                              SizedBox(
-                                                                                width: 8,
-                                                                              ),
-                                                                              AutoSizeText(
-                                                                                home_controller.orderlisting[0].order![index].status == 0 ? 'OPEN' : 'PICKED',
-                                                                                style: TextStyle(fontSize: 8.0, color: Color.fromRGBO(255, 255, 255, 1)),
-                                                                              ),
-                                                                              SizedBox(
-                                                                                width: 8,
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        )),
+                                                SizedBox(
+                                                  height: 3,
+                                                ),
+                                                AutoSizeText(
+                                                  home_controller
+                                                              .orderlisting[0]
+                                                              .order![index]
+                                                              .status ==
+                                                          0
+                                                      ? 'OPEN'
+                                                      : 'PICKED',
+                                                  style: TextStyle(
+                                                      fontSize: 8.0,
+                                                      color: Color.fromRGBO(
+                                                          255, 255, 255, 1)),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          // SlidableAction(
+                                          //   autoClose: false,
+                                          //   flex: 1,
+                                          //   onPressed: (value) {
+                                          //     //    myList.removeAt(index);
+                                          //     setState(() {});
+                                          //   },
+                                          //   backgroundColor:
+                                          //       Color.fromRGBO(52, 191, 163, 1),
+                                          //   foregroundColor: Colors.white,
+                                          //   icon: Icons.edit,
+                                          //   label: 'view',
+                                          // ),
+                                          // SlidableAction(
+                                          //   autoClose: false,
+                                          //   flex: 1,
+                                          //   onPressed: (value) {
+                                          //     //   myList.removeAt(index);
+                                          //     setState(() {});
+                                          //   },
+                                          //   backgroundColor:
+                                          //       Color.fromRGBO(9, 85, 193, 1),
+                                          //   foregroundColor: Colors.white,
+                                          //   icon: Icons.edit,
+                                          //   label: 'Status',
+                                          // )
+                                        ],
+                                      ),
+                                      child: Container(
+                                        color: Color.fromRGBO(255, 255, 255, 1),
+                                        child: Padding(
+                                            padding: EdgeInsets.fromLTRB(
+                                                16, 0, 16, 0),
+                                            child: Column(
+                                              children: [
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Column(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            AutoSizeText(
+                                                              'Order Ref#',
+                                                              style: TextStyle(
+                                                                //  fontWeight: FontWeight.w500,
+                                                                fontSize: 10.0,
+                                                                color: Color
+                                                                    .fromRGBO(
+                                                                        93,
+                                                                        93,
+                                                                        106,
+                                                                        1),
                                                               ),
-                                                              SizedBox(
-                                                                  width: 5),
-                                                            ],
-                                                          ),
-                                                          SizedBox(
-                                                            height: 5,
-                                                          )
-                                                        ],
-                                                      ),
-                                                      SizedBox(
-                                                        height: 13,
-                                                      ),
-                                                      Column(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          AutoSizeText(
-                                                            'Order Time',
-                                                            style: TextStyle(
-                                                              //  fontWeight: FontWeight.w500,
-                                                              fontSize: 10.0,
-                                                              color: Color
-                                                                  .fromRGBO(
-                                                                      93,
-                                                                      93,
-                                                                      106,
-                                                                      1),
                                                             ),
-                                                          ),
-                                                          if (home_controller
-                                                                  .orderlisting[
-                                                                      0]
-                                                                  .order![index]
-                                                                  .orderDate
-                                                                  .toString() !=
-                                                              null)
-                                                            Container(
-                                                              child: changetimeformat(
-                                                                  home_controller
+                                                            SizedBox(
+                                                              height: 5,
+                                                            ),
+                                                            AutoSizeText(
+                                                              home_controller
+                                                                          .orderlisting[
+                                                                              0]
+                                                                          .order![
+                                                                              index]
+                                                                          .referenceNumber
+                                                                          .toString() !=
+                                                                      null
+                                                                  ? home_controller
                                                                       .orderlisting[
                                                                           0]
                                                                       .order![
                                                                           index]
-                                                                      .orderDate
-                                                                      .toString()),
-                                                            ),
-                                                          SizedBox(
-                                                            height: 5,
-                                                          ),
-                                                          if (home_controller
-                                                                  .orderlisting[
-                                                                      0]
-                                                                  .order![index]
-                                                                  .orderDate
-                                                                  .toString() !=
-                                                              null)
-                                                            AutoSizeText(
-                                                              timeis,
+                                                                      .referenceNumber
+                                                                      .toString()
+                                                                  : '',
                                                               style: TextStyle(
                                                                 fontWeight:
                                                                     FontWeight
@@ -1008,34 +689,356 @@ class _HomeState extends State<Home> {
                                                                         1),
                                                               ),
                                                             ),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                            ],
-                                          )),
-                                    )),
-                              );
-                            },
+                                                          ],
+                                                        ),
+                                                        SizedBox(
+                                                          height: 10,
+                                                        ),
+                                                        Column(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            AutoSizeText(
+                                                              'Phone#',
+                                                              style: TextStyle(
+                                                                //  fontWeight: FontWeight.w500,
+                                                                fontSize: 10.0,
+                                                                color: Color
+                                                                    .fromRGBO(
+                                                                        93,
+                                                                        93,
+                                                                        106,
+                                                                        1),
+                                                              ),
+                                                            ),
+                                                            SizedBox(
+                                                              height: 5,
+                                                            ),
+                                                            AutoSizeText(
+                                                              home_controller
+                                                                          .orderlisting[
+                                                                              0]
+                                                                          .order![
+                                                                              index]
+                                                                          .phone
+                                                                          .toString() !=
+                                                                      null
+                                                                  ? home_controller
+                                                                      .orderlisting[
+                                                                          0]
+                                                                      .order![
+                                                                          index]
+                                                                      .phone
+                                                                      .toString()
+                                                                  : '',
+                                                              style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w700,
+                                                                fontSize: 10.0,
+                                                                color: Color
+                                                                    .fromRGBO(
+                                                                        93,
+                                                                        93,
+                                                                        106,
+                                                                        1),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Column(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            AutoSizeText(
+                                                              'Room#',
+                                                              style: TextStyle(
+                                                                //  fontWeight: FontWeight.w500,
+                                                                fontSize: 10.0,
+                                                                color: Color
+                                                                    .fromRGBO(
+                                                                        93,
+                                                                        93,
+                                                                        106,
+                                                                        1),
+                                                              ),
+                                                            ),
+                                                            SizedBox(
+                                                              height: 5,
+                                                            ),
+                                                            AutoSizeText(
+                                                              home_controller
+                                                                          .orderlisting[
+                                                                              0]
+                                                                          .order![
+                                                                              index]
+                                                                          .roomNumber
+                                                                          .toString() !=
+                                                                      null
+                                                                  ? home_controller
+                                                                      .orderlisting[
+                                                                          0]
+                                                                      .order![
+                                                                          index]
+                                                                      .roomNumber
+                                                                      .toString()
+                                                                  : '',
+                                                              style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w700,
+                                                                fontSize: 10.0,
+                                                                color: Color
+                                                                    .fromRGBO(
+                                                                        93,
+                                                                        93,
+                                                                        106,
+                                                                        1),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        SizedBox(
+                                                          height: 10,
+                                                        ),
+                                                        Column(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            AutoSizeText(
+                                                              'Order Placed on',
+                                                              style: TextStyle(
+                                                                //  fontWeight: FontWeight.w500,
+                                                                fontSize: 10.0,
+                                                                color: Color
+                                                                    .fromRGBO(
+                                                                        93,
+                                                                        93,
+                                                                        106,
+                                                                        1),
+                                                              ),
+                                                            ),
+                                                            SizedBox(
+                                                              height: 5,
+                                                            ),
+                                                            if (home_controller
+                                                                    .orderlisting[
+                                                                        0]
+                                                                    .order![
+                                                                        index]
+                                                                    .orderDate
+                                                                    .toString() !=
+                                                                null)
+                                                              Container(
+                                                                  child: changedateformate(home_controller
+                                                                      .orderlisting[
+                                                                          0]
+                                                                      .order![
+                                                                          index]
+                                                                      .orderDate
+                                                                      .toString())),
+                                                            AutoSizeText(
+                                                              dateis,
+                                                              style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w700,
+                                                                fontSize: 10.0,
+                                                                color: Color
+                                                                    .fromRGBO(
+                                                                        93,
+                                                                        93,
+                                                                        106,
+                                                                        1),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .end,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Column(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            SizedBox(
+                                                              height: 5,
+                                                            ),
+                                                            Row(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                InkWell(
+                                                                  onTap: () {},
+                                                                  child:
+                                                                      Container(
+                                                                          height:
+                                                                              20,
+                                                                          color: home_controller.orderlisting[0].order![index].status == 0
+                                                                              ? Color.fromRGBO(9, 85, 193,
+                                                                                  1)
+                                                                              : Color.fromRGBO(52, 191, 163,
+                                                                                  1),
+                                                                          child:
+                                                                              Center(
+                                                                            child:
+                                                                                Row(
+                                                                              children: [
+                                                                                SizedBox(
+                                                                                  width: 8,
+                                                                                ),
+                                                                                AutoSizeText(
+                                                                                  home_controller.orderlisting[0].order![index].status == 0 ? 'OPEN' : 'PICKED',
+                                                                                  style: TextStyle(fontSize: 8.0, color: Color.fromRGBO(255, 255, 255, 1)),
+                                                                                ),
+                                                                                SizedBox(
+                                                                                  width: 8,
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          )),
+                                                                ),
+                                                                SizedBox(
+                                                                    width: 5),
+                                                              ],
+                                                            ),
+                                                            SizedBox(
+                                                              height: 5,
+                                                            )
+                                                          ],
+                                                        ),
+                                                        SizedBox(
+                                                          height: 13,
+                                                        ),
+                                                        Column(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            AutoSizeText(
+                                                              'Order Time',
+                                                              style: TextStyle(
+                                                                //  fontWeight: FontWeight.w500,
+                                                                fontSize: 10.0,
+                                                                color: Color
+                                                                    .fromRGBO(
+                                                                        93,
+                                                                        93,
+                                                                        106,
+                                                                        1),
+                                                              ),
+                                                            ),
+                                                            if (home_controller
+                                                                    .orderlisting[
+                                                                        0]
+                                                                    .order![
+                                                                        index]
+                                                                    .orderDate
+                                                                    .toString() !=
+                                                                null)
+                                                              Container(
+                                                                child: changetimeformat(home_controller
+                                                                    .orderlisting[
+                                                                        0]
+                                                                    .order![
+                                                                        index]
+                                                                    .orderDate
+                                                                    .toString()),
+                                                              ),
+                                                            SizedBox(
+                                                              height: 5,
+                                                            ),
+                                                            if (home_controller
+                                                                    .orderlisting[
+                                                                        0]
+                                                                    .order![
+                                                                        index]
+                                                                    .orderDate
+                                                                    .toString() !=
+                                                                null)
+                                                              AutoSizeText(
+                                                                timeis,
+                                                                style:
+                                                                    TextStyle(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w700,
+                                                                  fontSize:
+                                                                      10.0,
+                                                                  color: Color
+                                                                      .fromRGBO(
+                                                                          93,
+                                                                          93,
+                                                                          106,
+                                                                          1),
+                                                                ),
+                                                              ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                              ],
+                                            )),
+                                      )),
+                                );
+                              },
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                      ],
+                          SizedBox(
+                            height: 10,
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-          ),
-          Center(
-              child: Obx(() => home_controller.loaddata.value == 'true'
-                  ? CircularProgressIndicator()
-                  : Container()))
-        ],
+            ),
+            Center(
+                child: Obx(() => home_controller.loaddata.value == 'true'
+                    ? CircularProgressIndicator()
+                    : Container()))
+          ],
+        ),
       ),
     );
   }
