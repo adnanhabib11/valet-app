@@ -122,7 +122,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                           Expanded(
                             child: Center(
                               child: AutoSizeText(
-                                'Valet Orders',
+                                'Orders Detail',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 16.0,
@@ -346,30 +346,6 @@ class _OrderdetailsState extends State<Orderdetails> {
                                           ),
                                           SizedBox(
                                             height: 8,
-                                          ),
-                                          Row(
-                                            children: [
-                                              // Image.asset(
-                                              //   'images/fluent_web-asset-24-regular.jpg',
-                                              // ),
-                                              Icon(
-                                                Icons.web_asset_outlined,
-                                                color: Color.fromARGB(
-                                                    255, 109, 109, 121),
-                                                size: 12,
-                                              ),
-                                              SizedBox(width: 5),
-                                              AutoSizeText(
-                                                'not given',
-                                                // 'www.laundryname.com',
-                                                style: TextStyle(
-                                                  //  fontWeight: FontWeight.bold,
-                                                  fontSize: 10.0,
-                                                  color: Color.fromRGBO(
-                                                      93, 93, 106, 1),
-                                                ),
-                                              ),
-                                            ],
                                           ),
                                         ],
                                       ),
