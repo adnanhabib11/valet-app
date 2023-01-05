@@ -112,7 +112,7 @@ class _LoginState extends State<Login> {
                         borderSide: new BorderSide(color: Colors.grey.shade300),
                         borderRadius: BorderRadius.circular(5.0)),
                     contentPadding: EdgeInsets.only(left: 10.0, right: 10.0),
-                    labelText: "Email",
+                    labelText: "User Name",
                     hintStyle: TextStyle(
                         fontSize: 12.0,
                         color: Color.fromRGBO(83, 83, 83, 1),
