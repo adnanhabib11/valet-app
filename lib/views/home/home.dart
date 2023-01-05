@@ -615,7 +615,18 @@ class _HomeState extends State<Home> {
                                         ],
                                       ),
                                       child: Container(
-                                        color: Color.fromRGBO(255, 255, 255, 1),
+                                        decoration: BoxDecoration(
+                                            color: Color.fromRGBO(
+                                                255, 255, 255, 1),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(
+                                                    8.0) //                 <--- border radius here
+                                                ),
+                                            border: Border.all(
+                                              color: Color.fromARGB(
+                                                  255, 206, 206, 212),
+                                              width: 0,
+                                            )),
                                         child: Padding(
                                             padding: EdgeInsets.fromLTRB(
                                                 16, 0, 16, 0),

@@ -221,7 +221,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                         .customerAddress!
                                                         .shippingPhone
                                                         .toString()
-                                                    : '',
+                                                    : 'not given',
 
                                                 style: TextStyle(
                                                   //  fontWeight: FontWeight.bold,
@@ -262,7 +262,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                         .customer!
                                                         .email
                                                         .toString()
-                                                    : '',
+                                                    : 'not given',
                                                 style: TextStyle(
                                                   //  fontWeight: FontWeight.bold,
                                                   fontSize: 10.0,
@@ -306,6 +306,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                                 .customerAddress!
                                                                 .shippingAddress
                                                                 .toString() +
+                                                            ',' +
                                                             orderdetail_controller
                                                                 .orderdetails[0]
                                                                 .order!
@@ -313,6 +314,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                                 .customerAddress!
                                                                 .shippingCity
                                                                 .toString() +
+                                                            ',' +
                                                             orderdetail_controller
                                                                 .orderdetails[0]
                                                                 .order!
@@ -320,6 +322,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                                 .customerAddress!
                                                                 .shippingState
                                                                 .toString() +
+                                                            ',' +
                                                             orderdetail_controller
                                                                 .orderdetails[0]
                                                                 .order!
@@ -327,7 +330,7 @@ class _OrderdetailsState extends State<Orderdetails> {
                                                                 .customerAddress!
                                                                 .country
                                                                 .toString()
-                                                        : '',
+                                                        : 'not given',
 
                                                     style: TextStyle(
                                                       //  fontWeight: FontWeight.bold,
@@ -381,7 +384,16 @@ class _OrderdetailsState extends State<Orderdetails> {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(16, 0, 16, 3),
                               child: Container(
-                                color: Color.fromRGBO(255, 255, 255, 1),
+                                decoration: BoxDecoration(
+                                    color: Color.fromRGBO(255, 255, 255, 1),
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(
+                                            8.0) //                 <--- border radius here
+                                        ),
+                                    border: Border.all(
+                                      color: Color.fromARGB(255, 206, 206, 212),
+                                      width: 0,
+                                    )),
                                 child: Padding(
                                     padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
                                     child: Column(
@@ -757,7 +769,17 @@ class _OrderdetailsState extends State<Orderdetails> {
                                 padding:
                                     const EdgeInsets.fromLTRB(16, 0, 16, 15),
                                 child: Container(
-                                  color: Color.fromRGBO(255, 255, 255, 1),
+                                  decoration: BoxDecoration(
+                                      color: Color.fromRGBO(255, 255, 255, 1),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(
+                                              8.0) //                 <--- border radius here
+                                          ),
+                                      border: Border.all(
+                                        color:
+                                            Color.fromARGB(255, 206, 206, 212),
+                                        width: 0,
+                                      )),
                                   child: Padding(
                                       padding:
                                           EdgeInsets.fromLTRB(16, 0, 16, 0),
